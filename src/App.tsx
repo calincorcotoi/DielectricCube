@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -26,12 +26,13 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import CallIcon from "@mui/icons-material/Call";
 import after1 from "../public/interventiiRapide/after1.jpg";
 import after2 from "../public/interventiiRapide/after2.jpg";
 import ars from "../public/interventiiRapide/ars.jpg";
@@ -45,7 +46,10 @@ import tablou4 from "../public/lucrariComplexe/tablou4.jpg";
 import tablou7 from "../public/lucrariComplexe/tablou7.jpg";
 import traseuCopex1 from "../public/lucrariComplexe/traseuCopex1.jpg";
 import traseuPerete from "../public/lucrariComplexe/traseuPerete.jpg";
+import dielectricLogo from "../public/logo/dielectric-logo.jpg";
+import dielectricLogoText from "../public/logo/dielectric-logo-text.png";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
+
 // Extend the Palette interface to include custom colors
 declare module "@mui/material/styles" {
   interface Palette {
@@ -55,6 +59,7 @@ declare module "@mui/material/styles" {
       darkBlue: string;
       yellow: string;
       orange: string;
+      dielectricRed: string;
     };
   }
   interface PaletteOptions {
@@ -64,10 +69,12 @@ declare module "@mui/material/styles" {
       darkBlue?: string;
       yellow?: string;
       orange?: string;
+      dielectricRed?: string;
     };
   }
 }
 
+// Updated theme with Dielectric Cube brand color
 const theme = createTheme({
   palette: {
     primary: {
@@ -76,7 +83,7 @@ const theme = createTheme({
       dark: "#072638", // Darker shade of dark blue
     },
     secondary: {
-      main: "#ff9100", // Orange from palette
+      main: "#c41e3a", // Dielectric Cube red
       light: "#ffca00", // Yellow from palette
     },
     background: {
@@ -88,6 +95,7 @@ const theme = createTheme({
       darkBlue: "#0a3954",
       yellow: "#ffca00",
       orange: "#ff9100",
+      dielectricRed: "#c41e3a", // Added Dielectric Cube brand color
     },
   },
   typography: {
@@ -137,7 +145,7 @@ const ColorStripe = () => (
       width: "100%",
       height: 3,
       overflow: "hidden",
-      bgcolor: theme.palette.colors.lightBlue,
+      bgcolor: theme.palette.colors.dielectricRed,
     }}
   >
     <Box sx={{ flexGrow: 1, bgcolor: theme.palette.colors.orange }} />
@@ -160,13 +168,28 @@ const Header: React.FC<HeaderProps> = ({
     sx={{ bgcolor: "#fff", color: theme.palette.colors.darkBlue }}
   >
     <Toolbar>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ flexGrow: 1, fontWeight: "bold" }}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexGrow: 1,
+        }}
       >
-        LOGO
-      </Typography>
+        {/* Dielectric Cube Logo */}
+        <Box
+          component="img"
+          src={dielectricLogo}
+          alt="Dielectric Cube"
+          sx={isMobile ? { height: 50 } : { height: 60 }}
+        />
+        <Box
+          component="img"
+          src={dielectricLogoText}
+          alt="Dielectric Cube"
+          sx={isMobile ? { height: 25, width: "70%" } : { height: 25 }}
+        />
+      </Box>
+
       {isMobile ? (
         <IconButton
           color="inherit"
@@ -182,7 +205,7 @@ const Header: React.FC<HeaderProps> = ({
             const colors = [
               theme.palette.colors.lightBlue,
               theme.palette.colors.teal,
-              theme.palette.colors.yellow,
+              theme.palette.colors.dielectricRed,
               theme.palette.colors.orange,
             ];
             return (
@@ -219,9 +242,26 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
   handleDrawerToggle,
 }) => (
   <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-    <Typography variant="h6" sx={{ my: 2 }}>
-      LOGO
-    </Typography>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        py: 2,
+      }}
+    >
+      <Box
+        component="img"
+        src={dielectricLogo}
+        alt="Dielectric Cube"
+        sx={{
+          height: 40,
+          mr: -1,
+          width: "70%",
+          maxHeight: "70%",
+        }}
+      />
+    </Box>
     <Divider />
     <List>
       {navItems.map((item) => (
@@ -250,31 +290,6 @@ const HeroSection = () => (
       overflow: "hidden",
     }}
   >
-    {/* Decorative circles */}
-    <Box
-      sx={{
-        position: "absolute",
-        bottom: -100,
-        right: -100,
-        width: 400,
-        height: 400,
-        borderRadius: "50%",
-        backgroundColor: theme.palette.colors.yellow,
-        opacity: 0.1,
-      }}
-    />
-    <Box
-      sx={{
-        position: "absolute",
-        top: -50,
-        left: -50,
-        width: 200,
-        height: 200,
-        borderRadius: "50%",
-        backgroundColor: theme.palette.colors.orange,
-        opacity: 0.1,
-      }}
-    />
     <Container maxWidth="lg">
       <Grid container alignItems="center" spacing={3}>
         <Grid item xs={12} md={7}>
@@ -283,19 +298,39 @@ const HeroSection = () => (
               Ai nevoie de un Electrician Autorizat IN Timisoara?
             </Typography>
           </Fade>
+
+          {/* New contact buttons section */}
           <Slide direction="right" in timeout={1200}>
-            <Button
-              variant="contained"
-              size="large"
-              endIcon={<ArrowForwardIcon />}
-              sx={{
-                mt: 3,
-                bgcolor: theme.palette.colors.orange,
-                "&:hover": { bgcolor: theme.palette.colors.yellow },
-              }}
-            >
-              Contactează-ne
-            </Button>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mt: 3 }}>
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<CallIcon />}
+                sx={{
+                  bgcolor: theme.palette.colors.dielectricRed,
+                  "&:hover": { bgcolor: "#a01a2f" }, // Darker red on hover
+                }}
+                component="a"
+                href="tel:+40770739248" // Replace with actual phone number
+              >
+                Sună-ne
+              </Button>
+
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<WhatsAppIcon />}
+                sx={{
+                  bgcolor: "#25D366", // WhatsApp green
+                  "&:hover": { bgcolor: "#1da851" }, // Darker green on hover
+                }}
+                component="a"
+                href="https://wa.me/40770739248" // Replace with actual WhatsApp link
+                target="_blank"
+              >
+                Mesaj WhatsApp
+              </Button>
+            </Box>
           </Slide>
         </Grid>
         <Grid item xs={12} md={5} sx={{ textAlign: "center" }}>
@@ -312,12 +347,20 @@ const HeroSection = () => (
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
-                border: `8px solid ${theme.palette.colors.lightBlue}`,
+                border: `8px solid ${theme.palette.colors.dielectricRed}`,
               }}
             >
-              <Typography variant="h3" color={theme.palette.colors.darkBlue}>
-                LOGO
-              </Typography>
+              <Box
+                component="img"
+                src={dielectricLogo}
+                alt="Dielectric Cube"
+                sx={{
+                  width: "70%",
+                  maxHeight: "70%",
+                  objectFit: "contain",
+                  ml: 3,
+                }}
+              />
             </Box>
           </Fade>
         </Grid>
@@ -329,18 +372,18 @@ const HeroSection = () => (
 ///////////////CarouselSection////////////////////
 const imagesWithDescriptions = {
   emergencies: [
-    { src: before1, desc: "Complex Work 1 Description" },
-    { src: before2, desc: "Complex Work 2 Description" },
-    { src: after1, desc: "Complex Work 3 Description" },
-    { src: after2, desc: "Complex Work 4 Description" },
-    { src: ars, desc: "Complex Work 5 Description" },
+    { src: before1, desc: "AAAAAAAAAAAAAAAAAAAAAA" },
+    { src: before2, desc: "BBBBBBBBBBBBBBBBBBBBBB" },
+    { src: after1, desc: "CCCCCCCCCCCCCC" },
+    { src: after2, desc: "vvvvvvvvvvvvvvvv" },
+    { src: ars, desc: "bbbbbbbbbbbbbbbbbbbbbb" },
     { src: circuitPrizaAscuns, desc: "Complex Work 6 Description" },
     { src: defecteSapa, desc: "Complex Work 7 Description" },
     { src: priza, desc: "Complex Work 8 Description" },
   ],
   complexWorks: [
-    { src: aparatMasura, desc: "Emergency Case 1" },
-    { src: tablou4, desc: "Emergency Case 2" },
+    { src: aparatMasura, desc: "AAAAAAAAAAAAAAAAAAAAAA" },
+    { src: tablou4, desc: "CCCCCCCCCCCCCC" },
     { src: tablou7, desc: "Emergency Case 3" },
     { src: tablou7, desc: "Emergency Case 3" },
     { src: traseuCopex1, desc: "Emergency Case 4" },
@@ -359,7 +402,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
   const [slideDirection, setSlideDirection] = useState("left");
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (isAnimating) return;
     setSlideDirection("left");
     setIsAnimating(true);
@@ -367,7 +410,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsAnimating(false);
     }, 300);
-  };
+  }, [isAnimating, images.length]);
 
   const handlePrev = () => {
     if (isAnimating) return;
@@ -386,38 +429,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [index, isAnimating]);
-
-  // Indicator dots
-  const renderIndicators = () => {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
-        {images.map((_, i) => (
-          <Box
-            key={i}
-            onClick={() => {
-              if (isAnimating) return;
-              setSlideDirection(i > index ? "left" : "right");
-              setIsAnimating(true);
-              setTimeout(() => {
-                setIndex(i);
-                setIsAnimating(false);
-              }, 300);
-            }}
-            sx={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              backgroundColor:
-                i === index ? "white" : "rgba(255, 255, 255, 0.5)",
-              cursor: "pointer",
-              transition: "background-color 0.3s",
-            }}
-          />
-        ))}
-      </Box>
-    );
-  };
+  }, [handleNext, index, isAnimating]);
 
   return (
     <Card
@@ -501,10 +513,8 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
               "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
             }}
           >
-            Previous
+            Înapoi
           </Button>
-
-          {renderIndicators()}
 
           <Button
             variant="contained"
@@ -515,7 +525,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
               "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
             }}
           >
-            Next
+            Înainte
           </Button>
         </Box>
       </CardContent>
@@ -540,7 +550,7 @@ const CarouselSection = () => {
           <SlideShow
             title="Intervenții/Urgente"
             images={imagesWithDescriptions.emergencies}
-            bgColor={theme.palette.colors.orange}
+            bgColor={theme.palette.colors.dielectricRed}
           />
         </Grid>
       </Grid>
@@ -565,7 +575,7 @@ const CertificationsSection = () => (
           const colors = [
             theme.palette.colors.teal,
             theme.palette.colors.darkBlue,
-            theme.palette.colors.orange,
+            theme.palette.colors.dielectricRed,
           ];
           return (
             <Grid item xs={12} sm={4} key={index}>
@@ -601,12 +611,12 @@ const PricingSection = () => (
       sx={{
         p: 0,
         overflow: "hidden",
-        border: `1px solid ${theme.palette.colors.yellow}`,
+        border: `1px solid ${theme.palette.colors.dielectricRed}`,
       }}
     >
       <Box
         sx={{
-          bgcolor: theme.palette.colors.yellow,
+          bgcolor: theme.palette.colors.dielectricRed,
           p: 2,
           display: "flex",
           justifyContent: "center",
@@ -616,7 +626,7 @@ const PricingSection = () => (
           variant="h5"
           component="h2"
           align="center"
-          sx={{ color: theme.palette.colors.darkBlue, fontWeight: "bold" }}
+          sx={{ color: "white", fontWeight: "bold" }}
         >
           Transparență în costuri
         </Typography>
@@ -641,10 +651,9 @@ const PricingSection = () => (
             variant="contained"
             startIcon={<PriceCheckIcon />}
             sx={{
-              bgcolor: theme.palette.colors.orange,
+              bgcolor: theme.palette.colors.dielectricRed,
               "&:hover": {
-                bgcolor: theme.palette.colors.yellow,
-                color: theme.palette.colors.darkBlue,
+                bgcolor: "#a01a2f", // Darker red on hover
               },
             }}
           >
@@ -674,7 +683,7 @@ const MissionSection = () => (
         width: 120,
         height: 120,
         borderRadius: "50%",
-        backgroundColor: theme.palette.colors.orange,
+        backgroundColor: theme.palette.colors.dielectricRed,
         opacity: 0.1,
       }}
     />
@@ -749,13 +758,15 @@ const ContactSection = () => (
             <CardContent>
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                 <PhoneIcon
-                  sx={{ mr: 2, color: theme.palette.colors.lightBlue }}
+                  sx={{ mr: 2, color: theme.palette.colors.dielectricRed }}
                 />
                 <Typography variant="body1">+40 700 000 000</Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                 <EmailIcon sx={{ mr: 2, color: theme.palette.colors.yellow }} />
-                <Typography variant="body1">contact@electrician.ro</Typography>
+                <Typography variant="body1">
+                  contact@dielectriccube.ro
+                </Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <LocationOnIcon
@@ -809,10 +820,9 @@ const ContactSection = () => (
                 variant="contained"
                 sx={{
                   mt: 2,
-                  bgcolor: theme.palette.colors.orange,
+                  bgcolor: theme.palette.colors.dielectricRed,
                   "&:hover": {
-                    bgcolor: theme.palette.colors.yellow,
-                    color: theme.palette.colors.darkBlue,
+                    bgcolor: "#a01a2f",
                   },
                 }}
                 fullWidth
@@ -834,8 +844,8 @@ const Footer = () => (
   >
     <Container>
       <Typography variant="body2">
-        © {new Date().getFullYear()} Electrician Autorizat Timișoara. Toate
-        drepturile rezervate.
+        © {new Date().getFullYear()} Dielectric Cube - Make Light in Darkness.
+        Toate drepturile rezervate.
       </Typography>
     </Container>
   </Box>
