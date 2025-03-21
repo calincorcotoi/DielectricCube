@@ -31,7 +31,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CalculateIcon from "@mui/icons-material/Calculate";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CallIcon from "@mui/icons-material/Call";
