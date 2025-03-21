@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { SetStateAction, useCallback, useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -17,13 +17,15 @@ import {
   ListItemText,
   Slide,
   Fade,
-  TextField,
   ThemeProvider,
   createTheme,
   CssBaseline,
   Divider,
   CardMedia,
   useTheme,
+  Link,
+  Modal,
+  Paper,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -33,22 +35,29 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CallIcon from "@mui/icons-material/Call";
-import after1 from "../public/interventiiRapide/after1.jpg";
-import after2 from "../public/interventiiRapide/after2.jpg";
-import ars from "../public/interventiiRapide/ars.jpg";
-import before1 from "../public/interventiiRapide/before1.jpg";
-import before2 from "../public/interventiiRapide/before2.jpg";
-import circuitPrizaAscuns from "../public/interventiiRapide/circuitPrizaAscuns.jpg";
-import defecteSapa from "../public/interventiiRapide/defecteSapa.jpg";
-import priza from "../public/interventiiRapide/priza.jpg";
-import aparatMasura from "../public/lucrariComplexe/aparatMasura.jpg";
-import tablou4 from "../public/lucrariComplexe/tablou4.jpg";
-import tablou7 from "../public/lucrariComplexe/tablou7.jpg";
-import traseuCopex1 from "../public/lucrariComplexe/traseuCopex1.jpg";
-import traseuPerete from "../public/lucrariComplexe/traseuPerete.jpg";
-import dielectricLogo from "../public/logo/dielectric-logo.jpg";
-import dielectricLogoText from "../public/logo/dielectric-logo-text.png";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import {
+  ArrowBack,
+  ArrowForward,
+  Close as CloseIcon,
+} from "@mui/icons-material";
+
+// Instead of importing images as modules, use the static paths
+const atestatAnre = "/atestate/anre.png";
+const after1 = "/interventiiRapide/after1.jpg";
+const after2 = "/interventiiRapide/after2.jpg";
+const ars = "/interventiiRapide/ars.jpg";
+const before1 = "/interventiiRapide/before1.jpg";
+const before2 = "/interventiiRapide/before2.jpg";
+const circuitPrizaAscuns = "/interventiiRapide/circuitPrizaAscuns.jpg";
+const defecteSapa = "/interventiiRapide/defecteSapa.jpg";
+const priza = "/interventiiRapide/priza.jpg";
+const aparatMasura = "/lucrariComplexe/aparatMasura.jpg";
+const tablou4 = "/lucrariComplexe/tablou4.jpg";
+const tablou7 = "/lucrariComplexe/tablou7.jpg";
+const traseuCopex1 = "/lucrariComplexe/traseuCopex1.jpg";
+const traseuPerete = "/lucrariComplexe/traseuPerete.jpg";
+const dielectricLogo = "/logo/dielectric-logo.jpg";
+const dielectricLogoText = "/logo/dielectric-logo-text.png";
 
 // Extend the Palette interface to include custom colors
 declare module "@mui/material/styles" {
@@ -60,6 +69,7 @@ declare module "@mui/material/styles" {
       yellow: string;
       orange: string;
       dielectricRed: string;
+      cream: string;
     };
   }
   interface PaletteOptions {
@@ -70,21 +80,22 @@ declare module "@mui/material/styles" {
       yellow?: string;
       orange?: string;
       dielectricRed?: string;
+      cream?: string;
     };
   }
 }
 
-// Updated theme with Dielectric Cube brand color
+// Updated theme with palette from the image and improved readability
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#0a3954", // Dark blue from palette
-      light: "#1c95b4", // Teal from palette
-      dark: "#072638", // Darker shade of dark blue
+      main: "#3F3826",
+      light: "#1c95b4",
+      dark: "#000000",
     },
     secondary: {
-      main: "#c41e3a", // Dielectric Cube red
-      light: "#ffca00", // Yellow from palette
+      main: "#FF3500",
+      light: "#F2F3D9",
     },
     background: {
       default: "#ffffff",
@@ -94,15 +105,44 @@ const theme = createTheme({
       teal: "#1c95b4",
       darkBlue: "#0a3954",
       yellow: "#ffca00",
-      orange: "#ff9100",
-      dielectricRed: "#c41e3a", // Added Dielectric Cube brand color
+      orange: "#FF3500",
+      dielectricRed: "#c41e3a",
+      cream: "#F2F3D9",
     },
   },
   typography: {
-    fontFamily: "Roboto, Arial, sans-serif",
-    h2: { fontWeight: 700 },
-    h4: { fontWeight: 600 },
-    button: { textTransform: "none", fontWeight: 600 },
+    fontFamily: "'Roboto', 'Arial', sans-serif",
+    h2: {
+      fontWeight: 700,
+      fontSize: "2.5rem",
+      lineHeight: 1.3,
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: "1.75rem",
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: "1.25rem",
+    },
+    h6: {
+      fontWeight: 500,
+      fontSize: "1.1rem",
+      lineHeight: 1.5,
+    },
+    body1: {
+      fontSize: "1rem",
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: "0.875rem",
+      lineHeight: 1.6,
+    },
+    button: {
+      textTransform: "none",
+      fontWeight: 600,
+      fontSize: "0.9375rem",
+    },
   },
   components: {
     MuiButton: {
@@ -111,7 +151,7 @@ const theme = createTheme({
           borderRadius: 8,
           padding: "10px 24px",
           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-          transition: "transform 0.3s, box-shadow 0.3s",
+          transition: "transform 0.2s, box-shadow 0.2s",
         },
         contained: {
           "&:hover": {
@@ -132,7 +172,18 @@ const theme = createTheme({
     },
     MuiAppBar: {
       styleOverrides: {
-        root: { backgroundImage: "none" },
+        root: {
+          backgroundImage: "none",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          paddingLeft: 24,
+          paddingRight: 24,
+        },
       },
     },
   },
@@ -141,15 +192,11 @@ const theme = createTheme({
 const ColorStripe = () => (
   <Box
     sx={{
-      display: "flex",
-      width: "100%",
       height: 3,
-      overflow: "hidden",
-      bgcolor: theme.palette.colors.dielectricRed,
+      background: `linear-gradient(10deg, ${theme.palette.colors.darkBlue} 0%, ${theme.palette.colors.teal} 25%, ${theme.palette.colors.lightBlue} 50%, ${theme.palette.colors.teal} 75%, ${theme.palette.colors.darkBlue} 100%)`,
+      boxShadow: `0 4px 8px rgba(0, 0, 0, 0.6)`,
     }}
-  >
-    <Box sx={{ flexGrow: 1, bgcolor: theme.palette.colors.orange }} />
-  </Box>
+  />
 );
 
 interface HeaderProps {
@@ -167,15 +214,21 @@ const Header: React.FC<HeaderProps> = ({
     position="sticky"
     sx={{ bgcolor: "#fff", color: theme.palette.colors.darkBlue }}
   >
-    <Toolbar>
+    <Toolbar
+      sx={{
+        display: "flex",
+        justifyContent: isMobile ? "space-between" : "center",
+        alignItems: "center",
+        padding: isMobile ? "0 16px" : "0 32px",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          flexGrow: 1,
+          mr: isMobile ? 0 : 16,
         }}
       >
-        {/* Dielectric Cube Logo */}
         <Box
           component="img"
           src={dielectricLogo}
@@ -186,10 +239,9 @@ const Header: React.FC<HeaderProps> = ({
           component="img"
           src={dielectricLogoText}
           alt="Dielectric Cube"
-          sx={isMobile ? { height: 25, width: "70%" } : { height: 25 }}
+          sx={isMobile ? { height: 25, maxWidth: "70%" } : { height: 25 }}
         />
       </Box>
-
       {isMobile ? (
         <IconButton
           color="inherit"
@@ -212,7 +264,8 @@ const Header: React.FC<HeaderProps> = ({
               <Button
                 key={item}
                 sx={{
-                  mx: 1,
+                  mx: 1.5,
+                  px: 2,
                   color: theme.palette.colors.darkBlue,
                   borderBottom: "3px solid transparent",
                   borderRadius: 0,
@@ -220,6 +273,7 @@ const Header: React.FC<HeaderProps> = ({
                     borderBottom: `3px solid ${colors[index]}`,
                     backgroundColor: "transparent",
                   },
+                  fontSize: "1rem",
                 }}
               >
                 {item}
@@ -270,8 +324,8 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
             primary={item}
             sx={{
               textAlign: "center",
-              py: 1,
-              "& .MuiTypography-root": { fontWeight: 500 },
+              py: 1.5,
+              "& .MuiTypography-root": { fontWeight: 500, fontSize: "1rem" },
             }}
           />
         </ListItem>
@@ -280,10 +334,14 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
   </Box>
 );
 
-const HeroSection = () => (
+interface HeroSectionProps {
+  isMobile: boolean;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ isMobile }) => (
   <Box
     sx={{
-      background: `linear-gradient(120deg, ${theme.palette.colors.darkBlue} 0%, ${theme.palette.colors.teal} 50%, ${theme.palette.colors.darkBlue} 100%)`,
+      background: `linear-gradient(120deg, ${theme.palette.colors.darkBlue} 0%, ${theme.palette.colors.teal} 65%, ${theme.palette.colors.darkBlue} 100%)`,
       color: "white",
       py: { xs: 6, md: 10 },
       position: "relative",
@@ -293,14 +351,17 @@ const HeroSection = () => (
     <Container maxWidth="lg">
       <Grid container alignItems="center" spacing={3}>
         <Grid item xs={12} md={7}>
-          <Fade in timeout={1000}>
-            <Typography variant="h2" component="h1" gutterBottom>
-              Ai nevoie de un Electrician Autorizat IN Timisoara?
+          <Fade in timeout={800}>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{ fontWeight: "bold" }}
+            >
+              Ai nevoie de un Electrician Autorizat în Timișoara?
             </Typography>
           </Fade>
-
-          {/* New contact buttons section */}
-          <Slide direction="right" in timeout={1200}>
+          <Slide direction="right" in timeout={900}>
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mt: 3 }}>
               <Button
                 variant="contained"
@@ -308,68 +369,81 @@ const HeroSection = () => (
                 startIcon={<CallIcon />}
                 sx={{
                   bgcolor: theme.palette.colors.dielectricRed,
-                  "&:hover": { bgcolor: "#a01a2f" }, // Darker red on hover
+                  "&:hover": { bgcolor: "#cc2a00", transform: "scale(1.03)" },
+                  transition: "transform 0.2s",
+                  animation: "gentlePulse 3s infinite",
                 }}
                 component="a"
-                href="tel:+40770739248" // Replace with actual phone number
+                href="tel:+40770739248"
               >
-                Sună-ne
+                Sună 0770739248
               </Button>
-
               <Button
                 variant="contained"
                 size="large"
                 startIcon={<WhatsAppIcon />}
                 sx={{
-                  bgcolor: "#25D366", // WhatsApp green
-                  "&:hover": { bgcolor: "#1da851" }, // Darker green on hover
+                  bgcolor: "#25D366",
+                  "&:hover": { bgcolor: "#1da851", transform: "scale(1.03)" },
+                  transition: "transform 0.2s",
+                  animation: "gentlePulse 3s infinite",
                 }}
                 component="a"
-                href="https://wa.me/40770739248" // Replace with actual WhatsApp link
+                href="https://wa.me/40770739248"
                 target="_blank"
               >
                 Mesaj WhatsApp
               </Button>
+              <style>
+                {`
+                  @keyframes gentlePulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.015); }
+                    100% { transform: scale(1); }
+                  }
+                `}
+              </style>
             </Box>
           </Slide>
         </Grid>
-        <Grid item xs={12} md={5} sx={{ textAlign: "center" }}>
-          <Fade in timeout={1500}>
-            <Box
-              sx={{
-                width: "100%",
-                maxWidth: 300,
-                height: 300,
-                margin: "0 auto",
-                bgcolor: "white",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
-                border: `8px solid ${theme.palette.colors.dielectricRed}`,
-              }}
-            >
+        {!isMobile && (
+          <Grid item xs={12} md={5} sx={{ textAlign: "center" }}>
+            <Fade in timeout={1200}>
               <Box
-                component="img"
-                src={dielectricLogo}
-                alt="Dielectric Cube"
                 sx={{
-                  width: "70%",
-                  maxHeight: "70%",
-                  objectFit: "contain",
-                  ml: 3,
+                  width: "100%",
+                  maxWidth: 300,
+                  height: 300,
+                  margin: "0 auto",
+                  bgcolor: "white",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+                  border: `8px solid ${theme.palette.colors.dielectricRed}`,
                 }}
-              />
-            </Box>
-          </Fade>
-        </Grid>
+              >
+                <Box
+                  component="img"
+                  src={dielectricLogo}
+                  alt="Dielectric Cube"
+                  sx={{
+                    width: "70%",
+                    maxHeight: "70%",
+                    objectFit: "contain",
+                    ml: 3,
+                  }}
+                />
+              </Box>
+            </Fade>
+          </Grid>
+        )}
       </Grid>
     </Container>
   </Box>
 );
 
-///////////////CarouselSection////////////////////
 const imagesWithDescriptions = {
   emergencies: [
     { src: before1, desc: "AAAAAAAAAAAAAAAAAAAAAA" },
@@ -422,14 +496,12 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
     }, 300);
   };
 
-  // Auto-slide effect
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
-    }, 5000);
-
+    }, 7000);
     return () => clearInterval(timer);
-  }, [handleNext, index, isAnimating]);
+  }, [handleNext]);
 
   return (
     <Card
@@ -451,7 +523,6 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
           {title}
         </Typography>
       </CardContent>
-
       <Box
         sx={{ position: "relative", flexGrow: 1, overflow: "hidden", my: 2 }}
       >
@@ -479,7 +550,6 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
           />
         </Box>
       </Box>
-
       <CardContent sx={{ pt: 0 }}>
         <Typography
           variant="body1"
@@ -493,8 +563,6 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
         >
           {images[index].desc}
         </Typography>
-
-        {/* Combined navigation row */}
         <Box
           sx={{
             display: "flex",
@@ -515,7 +583,6 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
           >
             Înapoi
           </Button>
-
           <Button
             variant="contained"
             endIcon={<ArrowForward />}
@@ -535,304 +602,313 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
 
 const CarouselSection = () => {
   const theme = useTheme();
-
   return (
-    <Container maxWidth="lg" sx={{ my: 6 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <SlideShow
-            title="Lucrări complexe"
-            images={imagesWithDescriptions.complexWorks}
-            bgColor={theme.palette.colors.teal}
-          />
+    <Box
+      sx={{
+        py: 6,
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 0.05,
+          mixBlendMode: "overlay",
+        },
+      }}
+    >
+      <Container maxWidth="lg" sx={{ my: 6 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <SlideShow
+              title="Lucrări complexe"
+              images={imagesWithDescriptions.complexWorks}
+              bgColor={theme.palette.colors.teal}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <SlideShow
+              title="Intervenții/Urgente"
+              images={imagesWithDescriptions.emergencies}
+              bgColor={theme.palette.colors.dielectricRed}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SlideShow
-            title="Intervenții/Urgente"
-            images={imagesWithDescriptions.emergencies}
-            bgColor={theme.palette.colors.dielectricRed}
-          />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 
-const CertificationsSection = () => (
-  <Box sx={{ bgcolor: theme.palette.colors.lightBlue, py: 6 }}>
-    <Container maxWidth="lg">
-      <Typography
-        variant="h4"
-        component="h2"
-        align="center"
-        gutterBottom
-        sx={{ mb: 4, color: theme.palette.colors.darkBlue }}
-      >
-        Atestat ANRE și IGPR
-      </Typography>
-      <Grid container spacing={3} justifyContent="center">
-        {["Atestat 1", "Atestat 2", "Atestat 3"].map((atestat, index) => {
-          const colors = [
-            theme.palette.colors.teal,
-            theme.palette.colors.darkBlue,
-            theme.palette.colors.dielectricRed,
-          ];
-          return (
-            <Grid item xs={12} sm={4} key={index}>
-              <Button
-                variant="contained"
-                fullWidth
-                sx={{
-                  py: 3,
-                  bgcolor: colors[index],
-                  border: "2px solid transparent",
-                  transition: "all 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                    bgcolor: "#fff",
-                    color: colors[index],
-                    borderColor: colors[index],
-                  },
-                }}
-              >
-                {atestat}
-              </Button>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Container>
-  </Box>
-);
+const CertificationsSection = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedCert, setSelectedCert] = useState<{
+    name: string;
+    color: string;
+    image: string;
+    description: string;
+  } | null>(null);
 
-const PricingSection = () => (
-  <Container maxWidth="lg" sx={{ my: 6 }}>
-    <Card
+  const certifications = [
+    {
+      name: "Atestat 1",
+      color: theme.palette.colors.teal,
+      image: atestatAnre,
+      description: "Certificare ANRE pentru instalații electrice",
+    },
+    {
+      name: "Atestat 2",
+      color: theme.palette.colors.darkBlue,
+      image: atestatAnre,
+      description: "Certificare IGPR pentru sisteme de securitate",
+    },
+    {
+      name: "Atestat 3",
+      color: theme.palette.colors.dielectricRed,
+      image: atestatAnre,
+      description: "Autorizație pentru lucrări de înaltă tensiune",
+    },
+  ];
+
+  const handleOpen = (
+    cert: SetStateAction<{
+      name: string;
+      color: string;
+      image: string;
+      description: string;
+    } | null>
+  ) => {
+    setSelectedCert(cert);
+    setOpenModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenModal(false);
+  };
+
+  return (
+    <Box
       sx={{
-        p: 0,
-        overflow: "hidden",
-        border: `1px solid ${theme.palette.colors.dielectricRed}`,
+        pt: 6,
+        pb: 6,
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 1.05,
+          mixBlendMode: "overlay",
+        },
       }}
     >
-      <Box
+      <Container maxWidth="lg">
+        <Card
+          elevation={3}
+          sx={{
+            p: 3,
+            borderRadius: 2,
+            background: "rgba(255, 255, 255, 0.9)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <CardContent>
+            <Typography
+              variant="h4"
+              component="h2"
+              align="center"
+              gutterBottom
+              sx={{ mb: 4, color: theme.palette.colors.darkBlue }}
+            >
+              Atestat ANRE și IGPR
+            </Typography>
+            <Grid container spacing={3} justifyContent="center">
+              {certifications.map((cert, index) => (
+                <Grid item xs={12} sm={4} key={index}>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    onClick={() => handleOpen(cert)}
+                    sx={{
+                      py: 3,
+                      bgcolor: cert.color,
+                      border: "2px solid transparent",
+                      transition: "all 0.3s",
+                      "&:hover": {
+                        transform: "scale(1.03)",
+                        bgcolor: "#fff",
+                        color: cert.color,
+                        borderColor: cert.color,
+                      },
+                    }}
+                  >
+                    {cert.name}
+                  </Button>
+                </Grid>
+              ))}
+            </Grid>
+          </CardContent>
+        </Card>
+      </Container>
+
+      {/* Certificate Modal */}
+      <Modal
+        open={openModal}
+        onClose={handleClose}
+        aria-labelledby="certificate-modal"
+        aria-describedby="certificate-details"
         sx={{
-          bgcolor: theme.palette.colors.dielectricRed,
-          p: 2,
           display: "flex",
+          alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Typography
-          variant="h5"
-          component="h2"
-          align="center"
-          sx={{ color: "white", fontWeight: "bold" }}
+        <Paper
+          sx={{
+            position: "relative",
+            maxWidth: "90vw",
+            maxHeight: "90vh",
+            p: 4,
+            outline: "none",
+            borderRadius: 2,
+            overflow: "auto",
+            boxShadow: 24,
+          }}
         >
-          Transparență în costuri
-        </Typography>
-      </Box>
-      <CardContent sx={{ p: 4 }}>
-        <Typography variant="h6" align="center" sx={{ mb: 3 }}>
-          Să nu te trezești cu costuri suplimentare. Prima dată primești oferta,
-          apoi se începe lucrarea. Fără costuri ascunse!
-        </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mt: 4 }}>
-          <Button
-            variant="contained"
-            startIcon={<CalculateIcon />}
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
             sx={{
-              bgcolor: theme.palette.colors.teal,
-              "&:hover": { bgcolor: theme.palette.colors.darkBlue },
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: "grey.500",
             }}
           >
-            Calculator
-          </Button>
-          <Button
-            variant="contained"
-            startIcon={<PriceCheckIcon />}
-            sx={{
-              bgcolor: theme.palette.colors.dielectricRed,
-              "&:hover": {
-                bgcolor: "#a01a2f", // Darker red on hover
-              },
-            }}
-          >
-            Tarife
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
-  </Container>
-);
+            <CloseIcon />
+          </IconButton>
 
-const MissionSection = () => (
-  <Box
-    sx={{
-      background: `linear-gradient(to right, ${theme.palette.colors.teal}, ${theme.palette.colors.darkBlue})`,
-      py: 6,
-      color: "white",
-      position: "relative",
-      overflow: "hidden",
-    }}
-  >
-    <Box
-      sx={{
-        position: "absolute",
-        top: -30,
-        right: "10%",
-        width: 120,
-        height: 120,
-        borderRadius: "50%",
-        backgroundColor: theme.palette.colors.dielectricRed,
-        opacity: 0.1,
-      }}
-    />
-    <Box
-      sx={{
-        position: "absolute",
-        bottom: -40,
-        left: "20%",
-        width: 150,
-        height: 150,
-        borderRadius: "50%",
-        backgroundColor: theme.palette.colors.lightBlue,
-        opacity: 0.1,
-      }}
-    />
-    <Container maxWidth="lg">
-      <Typography
-        variant="h4"
-        component="h2"
-        align="center"
-        gutterBottom
-        sx={{ mb: 3 }}
-      >
-        Misiunea noastră
-      </Typography>
-      <Card
-        sx={{
-          maxWidth: 800,
-          mx: "auto",
-          bgcolor: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(5px)",
-          color: "white",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-        }}
-      >
-        <CardContent>
-          <Typography variant="body1" align="center" paragraph>
-            Ne dedicăm furnizării de servicii electrice de cea mai înaltă
-            calitate, asigurând siguranța și satisfacția clienților noștri. Cu o
-            echipă de profesioniști autorizați, suntem pregătiți să răspundem
-            prompt la toate nevoile dvs. electrice, de la instalații simple până
-            la proiecte complexe.
-          </Typography>
-        </CardContent>
-      </Card>
-    </Container>
-  </Box>
-);
+          {selectedCert && (
+            <>
+              <Typography
+                id="certificate-modal"
+                variant="h5"
+                component="h2"
+                sx={{
+                  mb: 2,
+                  color: selectedCert.color,
+                  textAlign: "center",
+                }}
+              >
+                {selectedCert.name}
+              </Typography>
 
-const ContactSection = () => (
-  <Box sx={{ bgcolor: theme.palette.colors.darkBlue, color: "white", py: 6 }}>
-    <Container maxWidth="lg">
-      <Typography
-        variant="h4"
-        component="h2"
-        align="center"
-        gutterBottom
-        sx={{ mb: 4 }}
-      >
-        Date de contact
-      </Typography>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Card
-            sx={{
-              height: "100%",
-              bgcolor: "rgba(255, 255, 255, 0.1)",
-              color: "white",
-              border: `1px solid ${theme.palette.colors.teal}`,
-            }}
-          >
-            <CardContent>
-              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                <PhoneIcon
-                  sx={{ mr: 2, color: theme.palette.colors.dielectricRed }}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 3,
+                }}
+              >
+                <Box
+                  component="img"
+                  src={selectedCert.image}
+                  alt={`${selectedCert.name} certificate`}
+                  sx={{
+                    maxWidth: "100%",
+                    maxHeight: "70vh",
+                    objectFit: "contain",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                    borderRadius: 1,
+                  }}
                 />
-                <Typography variant="body1">+40 700 000 000</Typography>
-              </Box>
-              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                <EmailIcon sx={{ mr: 2, color: theme.palette.colors.yellow }} />
-                <Typography variant="body1">
-                  contact@dielectriccube.ro
+
+                <Typography variant="body1" id="certificate-details">
+                  {selectedCert.description}
                 </Typography>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <LocationOnIcon
-                  sx={{ mr: 2, color: theme.palette.colors.orange }}
-                />
-                <Typography variant="body1">Timișoara, România</Typography>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Card
+            </>
+          )}
+        </Paper>
+      </Modal>
+    </Box>
+  );
+};
+
+const PricingSection = () => (
+  <Box
+    sx={{
+      pb: 6,
+      position: "relative",
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        opacity: 0.05,
+        mixBlendMode: "overlay",
+      },
+    }}
+  >
+    <Container maxWidth="lg">
+      <Card
+        sx={{
+          p: 0,
+          overflow: "hidden",
+          border: `1px solid ${theme.palette.colors.dielectricRed}`,
+          boxShadow: `0 15px 30px rgba(0,0,0,0.2), 0 0 15px ${theme.palette.colors.dielectricRed}20`,
+        }}
+      >
+        <Box
+          sx={{
+            bgcolor: theme.palette.colors.dielectricRed,
+            p: 2,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            variant="h5"
+            component="h2"
+            align="center"
+            sx={{ color: "white", fontWeight: "bold" }}
+          >
+            Transparență în costuri
+          </Typography>
+        </Box>
+        <CardContent sx={{ p: 4 }}>
+          <Typography variant="h6" align="center" sx={{ mb: 3 }}>
+            Să nu te trezești cu costuri suplimentare. Prima dată primești
+            oferta, apoi se începe lucrarea. Fără costuri ascunse!
+          </Typography>
+          <Box
             sx={{
-              height: "100%",
-              background: `linear-gradient(135deg, white 0%, ${theme.palette.colors.lightBlue}15 100%)`,
-              color: "black",
-              border: `1px solid ${theme.palette.colors.lightBlue}`,
+              display: "flex",
+              justifyContent: "center",
+              gap: 3,
+              mt: 4,
+              flexWrap: "wrap",
             }}
           >
-            <CardContent>
-              <Typography
-                variant="h6"
-                gutterBottom
-                color={theme.palette.colors.darkBlue}
-              >
-                Trimite-ne un mesaj
-              </Typography>
-              <TextField
-                label="Nume"
-                fullWidth
-                margin="normal"
-                variant="outlined"
-                size="small"
-              />
-              <TextField
-                label="Email"
-                fullWidth
-                margin="normal"
-                variant="outlined"
-                size="small"
-              />
-              <TextField
-                label="Mesaj"
-                fullWidth
-                margin="normal"
-                variant="outlined"
-                multiline
-                rows={3}
-              />
-              <Button
-                variant="contained"
-                sx={{
-                  mt: 2,
-                  bgcolor: theme.palette.colors.dielectricRed,
-                  "&:hover": {
-                    bgcolor: "#a01a2f",
-                  },
-                }}
-                fullWidth
-              >
-                Trimite
-              </Button>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+            <Button
+              variant="contained"
+              startIcon={<PriceCheckIcon />}
+              sx={{
+                bgcolor: theme.palette.colors.teal,
+                "&:hover": { bgcolor: "#cc2a00" },
+              }}
+            >
+              Tarife
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
     </Container>
   </Box>
 );
@@ -840,13 +916,198 @@ const ContactSection = () => (
 const Footer = () => (
   <Box
     component="footer"
-    sx={{ bgcolor: "#05202f", color: "white", py: 3, textAlign: "center" }}
+    sx={{
+      bgcolor: "#05202f",
+      color: "white",
+      py: 4,
+      textAlign: { xs: "center", md: "left" },
+      position: "relative",
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundImage: `linear-gradient(to right, ${theme.palette.colors.darkBlue}50 1px, transparent 1px)`,
+        backgroundSize: "50px 100%",
+        opacity: 0.05,
+      },
+    }}
   >
     <Container>
-      <Typography variant="body2">
-        © {new Date().getFullYear()} Dielectric Cube - Make Light in Darkness.
-        Toate drepturile rezervate.
-      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={4}>
+          <Typography
+            variant="h6"
+            sx={{ mb: 2, color: theme.palette.colors.cream }}
+          >
+            Date de Contact
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: 2,
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <PhoneIcon
+              sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
+            />
+            <Link
+              href="tel:+40770739248"
+              sx={{
+                color: "white",
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              0770 739 248
+            </Link>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: 2,
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <EmailIcon
+              sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
+            />
+            <Link
+              href="mailto:contact@dielectric.ro"
+              sx={{
+                color: "white",
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              contact@dielectric.ro
+            </Link>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: 2,
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <LocationOnIcon
+              sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
+            />
+            <Typography variant="body2">Timișoara, România</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Typography
+            variant="h6"
+            sx={{ mb: 2, color: theme.palette.colors.cream }}
+          >
+            Linkuri Rapide
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <Link
+              href="#"
+              sx={{
+                color: "white",
+                mb: 1,
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              Despre noi
+            </Link>
+            <Link
+              href="#"
+              sx={{
+                color: "white",
+                mb: 1,
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              Servicii
+            </Link>
+            <Link
+              href="#"
+              sx={{
+                color: "white",
+                mb: 1,
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              Calculator preț
+            </Link>
+            <Link
+              href="#"
+              sx={{
+                color: "white",
+                mb: 1,
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.colors.cream },
+              }}
+            >
+              Portofoliu
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Typography
+            variant="h6"
+            sx={{ mb: 2, color: theme.palette.colors.cream }}
+          >
+            Program de Lucru
+          </Typography>
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            Luni - Vineri: 08:00 - 20:00
+          </Typography>
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            Sâmbătă: 09:00 - 16:00
+          </Typography>
+          <Typography variant="body2" sx={{ mb: 3 }}>
+            Duminică: Urgențe
+          </Typography>
+          <Box sx={{ mt: 2 }}>
+            <Button
+              variant="outlined"
+              startIcon={<CallIcon />}
+              sx={{
+                color: theme.palette.colors.cream,
+                borderColor: theme.palette.colors.cream,
+                "&:hover": {
+                  borderColor: theme.palette.colors.dielectricRed,
+                  backgroundColor: "rgba(255, 53, 0, 0.1)",
+                },
+              }}
+              component="a"
+              href="tel:+40770739248"
+            >
+              Sună pentru urgențe
+            </Button>
+          </Box>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sx={{ mt: 3, borderTop: "1px solid rgba(255,255,255,0.1)", pt: 2 }}
+        >
+          <Typography variant="body2" align="center">
+            © {new Date().getFullYear()} Dielectric Cube - Make Light in
+            Darkness. Toate drepturile rezervate.
+          </Typography>
+        </Grid>
+      </Grid>
     </Container>
   </Box>
 );
@@ -878,15 +1139,19 @@ function App() {
         />
       </Drawer>
       <main>
-        <HeroSection />
-        <ColorStripe />
-        <CarouselSection />
-        <CertificationsSection />
-        <PricingSection />
-        <MissionSection />
-        <ContactSection />
+        {/* Content goes here */}
+        <HeroSection isMobile={isMobile} />
+        <Box
+          style={{
+            background: `linear-gradient(120deg, ${theme.palette.colors.teal} 10%, ${theme.palette.colors.lightBlue} 50%, ${theme.palette.colors.teal} 100%)`,
+          }}
+        >
+          <ColorStripe />
+          <CertificationsSection />
+          <CarouselSection />
+          <PricingSection />
+        </Box>
       </main>
-      <ColorStripe />
       <Footer />
     </ThemeProvider>
   );
