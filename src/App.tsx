@@ -710,7 +710,7 @@ const CarouselSection = () => {
         <Card
           elevation={3}
           sx={{
-            p: isMobile? 0 : 3,
+            p: isMobile ? 0 : 3,
             mb: 4,
             borderRadius: 2,
             background: `linear-gradient(to right, ${theme.palette.colors.cream}, white)`,
@@ -724,7 +724,7 @@ const CarouselSection = () => {
               gutterBottom
               sx={{
                 mb: 1,
-                p: isMobile? 3 : 0,
+                p: isMobile ? 3 : 0,
                 color: theme.palette.colors.darkBlue,
                 fontWeight: 600,
                 position: "relative",
@@ -749,7 +749,7 @@ const CarouselSection = () => {
               align="center"
               sx={{
                 mb: 5,
-                p: isMobile? 3 : 0,
+                p: isMobile ? 3 : 0,
                 color: "text.secondary",
                 maxWidth: "800px",
                 mx: "auto",
@@ -1572,7 +1572,7 @@ Mi-au efectuat instalatia electrică completă a unei hale pe structură metalic
     ],
   };
 
-  const renderStars = (rating) => {
+  const renderStars = (rating: number) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
