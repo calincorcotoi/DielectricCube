@@ -26,6 +26,8 @@ import {
   Link,
   Modal,
   Paper,
+  CircularProgress,
+  ListItemIcon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -38,6 +40,13 @@ import {
   ArrowBack,
   ArrowForward,
   Close as CloseIcon,
+  Verified as VerifiedIcon,
+  Engineering as EngineeringIcon,
+  ElectricalServices as ElectricalServicesIcon,
+  Security as SecurityIcon,
+  Power as PowerIcon,
+  Lightbulb as LightbulbIcon,
+  Build as BuildIcon,
 } from "@mui/icons-material";
 
 // Instead of importing images as modules, use the static paths
@@ -65,10 +74,11 @@ declare module "@mui/material/styles" {
       lightBlue: string;
       teal: string;
       darkBlue: string;
-      yellow: string;
-      orange: string;
-      dielectricRed: string;
+      veryDarkBlue: string;
       cream: string;
+      lightGray: string;
+      electricYellow: string;
+      dielectricRed: string;
     };
   }
   interface PaletteOptions {
@@ -76,10 +86,11 @@ declare module "@mui/material/styles" {
       lightBlue?: string;
       teal?: string;
       darkBlue?: string;
-      yellow?: string;
-      orange?: string;
-      dielectricRed?: string;
+      veryDarkBlue?: string;
       cream?: string;
+      lightGray?: string;
+      electricYellow?: string;
+      dielectricRed?: string;
     };
   }
 }
@@ -100,13 +111,14 @@ const theme = createTheme({
       default: "#ffffff",
     },
     colors: {
-      lightBlue: "#87caeb",
-      teal: "#1c95b4",
-      darkBlue: "#0a3954",
-      yellow: "#ffca00",
-      orange: "#FF3500",
+      lightBlue: "#134074",
+      darkBlue: "#13315c",
+      veryDarkBlue: "#0b2545",
+      teal: "#8da9c4",
+      cream: "#eef4ed",
+      lightGray: "#f9f9f9",
+      electricYellow: "#ffc107",
       dielectricRed: "#c41e3a",
-      cream: "#F2F3D9",
     },
   },
   typography: {
@@ -191,9 +203,8 @@ const theme = createTheme({
 const ColorStripe = () => (
   <Box
     sx={{
-      height: 3,
-      background: `linear-gradient(10deg, ${theme.palette.colors.darkBlue} 0%, ${theme.palette.colors.teal} 25%, ${theme.palette.colors.lightBlue} 50%, ${theme.palette.colors.teal} 75%, ${theme.palette.colors.darkBlue} 100%)`,
-      boxShadow: `0 4px 8px rgba(0, 0, 0, 0.6)`,
+      height: 2,
+      boxShadow: `0 0px 16px rgba(0, 0, 0, 0.6)`,
     }}
   />
 );
@@ -238,7 +249,7 @@ const Header: React.FC<HeaderProps> = ({
           component="img"
           src={dielectricLogoText}
           alt="Dielectric Cube"
-          sx={isMobile ? { height: 25, maxWidth: "70%" } : { height: 25 }}
+          sx={isMobile ? { height: 27, maxWidth: "70%" } : { height: 27 }}
         />
       </Box>
       {isMobile ? (
@@ -254,17 +265,17 @@ const Header: React.FC<HeaderProps> = ({
         <Box sx={{ display: "flex" }}>
           {navItems.map((item, index) => {
             const colors = [
-              theme.palette.colors.lightBlue,
-              theme.palette.colors.teal,
-              theme.palette.colors.dielectricRed,
-              theme.palette.colors.orange,
+              theme.palette.colors.darkBlue,
+              theme.palette.colors.darkBlue,
+              theme.palette.colors.darkBlue,
+              theme.palette.colors.darkBlue,
             ];
             return (
               <Button
                 key={item}
                 sx={{
                   mx: 1.5,
-                  px: 2,
+                  px: 1,
                   color: theme.palette.colors.darkBlue,
                   borderBottom: "3px solid transparent",
                   borderRadius: 0,
@@ -340,9 +351,12 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ isMobile }) => (
   <Box
     sx={{
-      background: `linear-gradient(120deg, ${theme.palette.colors.darkBlue} 0%, ${theme.palette.colors.teal} 65%, ${theme.palette.colors.darkBlue} 100%)`,
+      background: `linear-gradient(120deg, ${theme.palette.colors.veryDarkBlue} 10%,
+      ${theme.palette.colors.darkBlue} 30%, 
+      ${theme.palette.colors.lightBlue} 55%, 
+      ${theme.palette.colors.teal} 100%)`,
       color: "white",
-      py: { xs: 6, md: 10 },
+      py: 6,
       position: "relative",
       overflow: "hidden",
     }}
@@ -369,8 +383,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isMobile }) => (
                 sx={{
                   bgcolor: theme.palette.colors.dielectricRed,
                   "&:hover": { bgcolor: "#cc2a00", transform: "scale(1.03)" },
-                  transition: "transform 0.2s",
-                  animation: "gentlePulse 3s infinite",
+                  transition: "transform 0.7s",
+                  animation: "gentlePulse 2s infinite",
                 }}
                 component="a"
                 href="tel:+40770739248"
@@ -384,8 +398,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isMobile }) => (
                 sx={{
                   bgcolor: "#25D366",
                   "&:hover": { bgcolor: "#1da851", transform: "scale(1.03)" },
-                  transition: "transform 0.2s",
-                  animation: "gentlePulse 3s infinite",
+                  transition: "transform 0.7s",
+                  animation: "gentlePulse 2s infinite",
                 }}
                 component="a"
                 href="https://wa.me/40770739248"
@@ -518,7 +532,13 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
       }}
     >
       <CardContent sx={{ pb: 0 }}>
-        <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: "bold",
+            mb: 1,
+          }}
+        >
           {title}
         </Typography>
       </CardContent>
@@ -576,6 +596,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
             startIcon={<ArrowBack />}
             onClick={handlePrev}
             sx={{
+              mr: 1,
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
             }}
@@ -587,6 +608,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ title, images, bgColor }) => {
             endIcon={<ArrowForward />}
             onClick={handleNext}
             sx={{
+              ml: 1,
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
             }}
@@ -604,7 +626,6 @@ const CarouselSection = () => {
   return (
     <Box
       sx={{
-        py: 6,
         position: "relative",
         "&::before": {
           content: '""',
@@ -624,14 +645,14 @@ const CarouselSection = () => {
             <SlideShow
               title="Lucrări complexe"
               images={imagesWithDescriptions.complexWorks}
-              bgColor={theme.palette.colors.teal}
+              bgColor={theme.palette.colors.darkBlue}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <SlideShow
               title="Intervenții/Urgente"
               images={imagesWithDescriptions.emergencies}
-              bgColor={theme.palette.colors.dielectricRed}
+              bgColor={theme.palette.colors.darkBlue}
             />
           </Grid>
         </Grid>
@@ -641,50 +662,37 @@ const CarouselSection = () => {
 };
 
 const CertificationsSection = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedCert, setSelectedCert] = useState<{
-    name: string;
-    color: string;
-    image: string;
-    description: string;
-  } | null>(null);
+  // State for controlling modals
+  const [openANRE, setOpenANRE] = useState(false);
+  const [openIGPR, setOpenIGPR] = useState(false);
 
-  const certifications = [
+  // Modal handlers
+  const handleOpenANRE = () => setOpenANRE(true);
+  const handleCloseANRE = () => setOpenANRE(false);
+  const handleOpenIGPR = () => setOpenIGPR(true);
+  const handleCloseIGPR = () => setOpenIGPR(false);
+
+  // Serviciile electricianului
+  const services = [
     {
-      name: "Atestat 1",
-      color: theme.palette.colors.teal,
-      image: atestatAnre,
-      description: "Certificare ANRE pentru instalații electrice",
+      title: "Instalații Electrice Rezidențiale",
+      icon: <ElectricalServicesIcon />,
+      description:
+        "Servicii complete de instalare, reparare și modernizare a instalațiilor electrice în locuințe.",
     },
     {
-      name: "Atestat 2",
-      color: theme.palette.colors.darkBlue,
-      image: atestatAnre,
-      description: "Certificare IGPR pentru sisteme de securitate",
+      title: "Sisteme de Securitate",
+      icon: <SecurityIcon />,
+      description:
+        "Instalare sisteme de alarmă, supraveghere video și control acces cu certificare IGPR.",
     },
     {
-      name: "Atestat 3",
-      color: theme.palette.colors.dielectricRed,
-      image: atestatAnre,
-      description: "Autorizație pentru lucrări de înaltă tensiune",
+      title: "Lucrări de Înaltă Tensiune",
+      icon: <PowerIcon />,
+      description:
+        "Intervenții specializate la rețele de medie și înaltă tensiune cu autorizație specifică.",
     },
   ];
-
-  const handleOpen = (
-    cert: SetStateAction<{
-      name: string;
-      color: string;
-      image: string;
-      description: string;
-    } | null>
-  ) => {
-    setSelectedCert(cert);
-    setOpenModal(true);
-  };
-
-  const handleClose = () => {
-    setOpenModal(false);
-  };
 
   return (
     <Box
@@ -692,26 +700,17 @@ const CertificationsSection = () => {
         pt: 6,
         pb: 6,
         position: "relative",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 1.05,
-          mixBlendMode: "overlay",
-        },
       }}
     >
       <Container maxWidth="lg">
+        {/* Secțiunea de Servicii */}
         <Card
           elevation={3}
           sx={{
             p: 3,
+            mb: 4,
             borderRadius: 2,
-            background: "rgba(255, 255, 255, 0.9)",
-            backdropFilter: "blur(10px)",
+            background: `linear-gradient(to right, ${theme.palette.colors.cream}, white)`,
           }}
         >
           <CardContent>
@@ -720,119 +719,334 @@ const CertificationsSection = () => {
               component="h2"
               align="center"
               gutterBottom
-              sx={{ mb: 4, color: theme.palette.colors.darkBlue }}
+              sx={{
+                mb: 1,
+                color: theme.palette.colors.darkBlue,
+                fontWeight: 600,
+                position: "relative",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -10,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "80px",
+                  height: "4px",
+                  background: `linear-gradient(to right, ${theme.palette.colors.darkBlue}, ${theme.palette.colors.dielectricRed})`,
+                  borderRadius: "2px",
+                },
+              }}
             >
-              Atestat ANRE și IGPR
+              Servicii Profesionale de Electrician
             </Typography>
-            <Grid container spacing={3} justifyContent="center">
-              {certifications.map((cert, index) => (
-                <Grid item xs={12} sm={4} key={index}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    onClick={() => handleOpen(cert)}
+
+            <Typography
+              variant="subtitle1"
+              align="center"
+              sx={{
+                mb: 5,
+                color: "text.secondary",
+                maxWidth: "800px",
+                mx: "auto",
+                mt: 3,
+              }}
+            >
+              Toate serviciile noastre sunt susținute de certificări
+              profesionale recunoscute la nivel național. Suntem autorizați ANRE
+              și IGPR pentru a vă oferi garanția calității și siguranței.
+            </Typography>
+
+            <Grid container spacing={3}>
+              {services.map((service, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card
+                    elevation={2}
                     sx={{
-                      py: 3,
-                      bgcolor: cert.color,
-                      border: "2px solid transparent",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                       transition: "all 0.3s",
                       "&:hover": {
-                        transform: "scale(1.03)",
-                        bgcolor: "#fff",
-                        color: cert.color,
-                        borderColor: cert.color,
+                        transform: "translateY(-5px)",
+                        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                       },
                     }}
                   >
-                    {cert.name}
-                  </Button>
+                    <CardContent
+                      sx={{
+                        flexGrow: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        p: 3,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          color: "white",
+                          bgcolor:
+                            index % 2 === 0
+                              ? theme.palette.colors.darkBlue
+                              : theme.palette.colors.dielectricRed,
+                          p: 1.5,
+                          borderRadius: "50%",
+                          display: "flex",
+                          mb: 2,
+                          boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+                        }}
+                      >
+                        {service.icon}
+                      </Box>
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        align="center"
+                        sx={{
+                          mb: 1.5,
+                          fontWeight: 600,
+                          color:
+                            index % 2 === 0
+                              ? theme.palette.colors.darkBlue
+                              : theme.palette.colors.dielectricRed,
+                        }}
+                      >
+                        {service.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        align="center"
+                        color="text.secondary"
+                      >
+                        {service.description}
+                      </Typography>
+                        <Typography
+                        variant="body2"
+                        onClick={() => console.log("Servicii Text Clicked")}
+                        sx={{
+                          mt: 2,
+                          color: theme.palette.colors.darkBlue,
+                          cursor: "pointer",
+                          "&:hover": {
+                          textDecoration: "underline",
+                          },
+                        }}
+                        >
+                        Vezi mai mult
+                        </Typography>
+                    </CardContent>
+                  </Card>
                 </Grid>
               ))}
             </Grid>
+
+            {/* Butoane pentru certificate */}
+            <Box
+              sx={{ display: "flex", justifyContent: "center", mt: 5, gap: 3 }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                onClick={handleOpenANRE}
+                startIcon={<VerifiedIcon />}
+                sx={{
+                  py: 1.5,
+                  px: 4,
+                  bgcolor: theme.palette.colors.darkBlue,
+                  color: "white",
+                  fontWeight: 600,
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                  transition: "all 0.3s",
+                  "&:hover": {
+                    bgcolor: "white",
+                    color: theme.palette.colors.darkBlue,
+                    boxShadow: `0 6px 15px rgba(0,0,0,0.2), 0 0 0 2px ${theme.palette.colors.darkBlue}`,
+                  },
+                }}
+              >
+                Certificat ANRE
+              </Button>
+
+              <Button
+                variant="contained"
+                size="large"
+                onClick={handleOpenIGPR}
+                startIcon={<VerifiedIcon />}
+                sx={{
+                  py: 1.5,
+                  px: 4,
+                  bgcolor: theme.palette.colors.dielectricRed,
+                  color: "white",
+                  fontWeight: 600,
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                  transition: "all 0.3s",
+                  "&:hover": {
+                    bgcolor: "white",
+                    color: theme.palette.colors.dielectricRed,
+                    boxShadow: `0 6px 15px rgba(0,0,0,0.2), 0 0 0 2px ${theme.palette.colors.dielectricRed}`,
+                  },
+                }}
+              >
+                Certificat IGPR
+              </Button>
+            </Box>
           </CardContent>
         </Card>
       </Container>
 
-      {/* Certificate Modal */}
+      {/* Modal pentru Certificat ANRE */}
       <Modal
-        open={openModal}
-        onClose={handleClose}
-        aria-labelledby="certificate-modal"
-        aria-describedby="certificate-details"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        open={openANRE}
+        onClose={handleCloseANRE}
+        aria-labelledby="modal-anre"
+        aria-describedby="modal-certificat-anre"
       >
-        <Paper
+        <Box
           sx={{
-            position: "relative",
-            maxWidth: "90vw",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: { xs: "90%", sm: "80%", md: "70%", lg: "60%" },
             maxHeight: "90vh",
+            bgcolor: "background.paper",
+            borderRadius: 2,
+            boxShadow: 24,
             p: 4,
             outline: "none",
-            borderRadius: 2,
             overflow: "auto",
-            boxShadow: 24,
           }}
         >
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
+          <Typography
+            id="modal-anre"
+            variant="h5"
+            component="h2"
             sx={{
-              position: "absolute",
-              right: 8,
-              top: 8,
-              color: "grey.500",
+              mb: 2,
+              color: theme.palette.colors.darkBlue,
+              fontWeight: 600,
+              textAlign: "center",
             }}
           >
-            <CloseIcon />
-          </IconButton>
+            Certificat ANRE
+          </Typography>
 
-          {selectedCert && (
-            <>
-              <Typography
-                id="certificate-modal"
-                variant="h5"
-                component="h2"
-                sx={{
-                  mb: 2,
-                  color: selectedCert.color,
-                  textAlign: "center",
-                }}
-              >
-                {selectedCert.name}
-              </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 2,
+              borderRadius: 1,
+              overflow: "hidden",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+          >
+            <img
+              src="/api/placeholder/600/800"
+              alt="Certificat ANRE"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "70vh",
+                objectFit: "contain",
+              }}
+            />
+          </Box>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 3,
-                }}
-              >
-                <Box
-                  component="img"
-                  src={selectedCert.image}
-                  alt={`${selectedCert.name} certificate`}
-                  sx={{
-                    maxWidth: "100%",
-                    maxHeight: "70vh",
-                    objectFit: "contain",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-                    borderRadius: 1,
-                  }}
-                />
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <Button
+              onClick={handleCloseANRE}
+              variant="contained"
+              sx={{
+                bgcolor: theme.palette.colors.darkBlue,
+                color: "white",
+                "&:hover": {
+                  bgcolor: theme.palette.colors.darkBlue,
+                  opacity: 0.9,
+                },
+              }}
+            >
+              Închide
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
 
-                <Typography variant="body1" id="certificate-details">
-                  {selectedCert.description}
-                </Typography>
-              </Box>
-            </>
-          )}
-        </Paper>
+      {/* Modal pentru Certificat IGPR */}
+      <Modal
+        open={openIGPR}
+        onClose={handleCloseIGPR}
+        aria-labelledby="modal-igpr"
+        aria-describedby="modal-certificat-igpr"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: { xs: "90%", sm: "80%", md: "70%", lg: "60%" },
+            maxHeight: "90vh",
+            bgcolor: "background.paper",
+            borderRadius: 2,
+            boxShadow: 24,
+            p: 4,
+            outline: "none",
+            overflow: "auto",
+          }}
+        >
+          <Typography
+            id="modal-igpr"
+            variant="h5"
+            component="h2"
+            sx={{
+              mb: 2,
+              color: theme.palette.colors.dielectricRed,
+              fontWeight: 600,
+              textAlign: "center",
+            }}
+          >
+            Certificat IGPR
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 2,
+              borderRadius: 1,
+              overflow: "hidden",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+          >
+            <img
+              src="/api/placeholder/600/800"
+              alt="Certificat IGPR"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "70vh",
+                objectFit: "contain",
+              }}
+            />
+          </Box>
+
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <Button
+              onClick={handleCloseIGPR}
+              variant="contained"
+              sx={{
+                bgcolor: theme.palette.colors.dielectricRed,
+                color: "white",
+                "&:hover": {
+                  bgcolor: theme.palette.colors.dielectricRed,
+                  opacity: 0.9,
+                },
+              }}
+            >
+              Închide
+            </Button>
+          </Box>
+        </Box>
       </Modal>
     </Box>
   );
@@ -841,7 +1055,7 @@ const CertificationsSection = () => {
 const PricingSection = () => (
   <Box
     sx={{
-      pb: 6,
+      pb: 12,
       position: "relative",
       "&::before": {
         content: '""',
@@ -1138,11 +1352,10 @@ function App() {
         />
       </Drawer>
       <main>
-        {/* Content goes here */}
         <HeroSection isMobile={isMobile} />
         <Box
           style={{
-            background: `linear-gradient(120deg, ${theme.palette.colors.teal} 10%, ${theme.palette.colors.lightBlue} 50%, ${theme.palette.colors.teal} 100%)`,
+            background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
           }}
         >
           <ColorStripe />
