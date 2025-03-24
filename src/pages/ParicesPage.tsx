@@ -28,7 +28,6 @@ import {
   WhatsApp,
   Call,
 } from "@mui/icons-material";
-import ButtonHoverEffect from "../components/ButtonHoverEffect";
 
 const PricesPage = () => {
   const theme = useTheme();
