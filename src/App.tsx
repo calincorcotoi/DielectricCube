@@ -1,7 +1,8 @@
 import { Box, ThemeProvider, createTheme, CssBaseline } from "@mui/material";
-import HomePage from "./pages/homePage/HomePage";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
+import { Outlet } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Extend the Palette interface to include custom colors
 declare module "@mui/material/styles" {
@@ -98,11 +99,9 @@ const theme = createTheme({
           borderRadius: 8,
           padding: "10px 24px",
           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-          transition: "transform 0.2s, box-shadow 0.2s",
         },
         contained: {
           "&:hover": {
-            transform: "translateY(-2px)",
             boxShadow: "0 6px 12px rgba(0, 0, 0, 0.15)",
           },
         },
@@ -130,6 +129,10 @@ const theme = createTheme({
         root: {
           paddingLeft: 24,
           paddingRight: 24,
+          "@media (max-width:600px)": {
+            paddingLeft: 10,
+            paddingRight: 10,
+          },
         },
       },
     },
@@ -140,15 +143,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <TopBar />
-      <Box
-        style={{
-          background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
-        }}
-      >
-        <HomePage />
+      <ScrollToTop />
+      <Box display="flex" flexDirection="column" minHeight="100vh">
+        <TopBar />
+        <Box
+          flex="1"
+          style={{
+            background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
+          }}
+        >
+          <Outlet />
+        </Box>
+        <Footer />
       </Box>
-      <Footer />
     </ThemeProvider>
   );
 }

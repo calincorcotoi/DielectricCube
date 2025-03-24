@@ -8,9 +8,11 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   return (
     <Box
       component="footer"
@@ -22,7 +24,7 @@ const Footer = () => {
         position: "relative",
         "&::before": {
           content: '""',
-          position: "absolute",
+
           top: 0,
           left: 0,
           width: "100%",
@@ -76,14 +78,14 @@ const Footer = () => {
                 sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
               />
               <Link
-                href="mailto:contact@dielectric.ro"
+                href="mailto:office@dielectric-cube.ro"
                 sx={{
                   color: "white",
                   textDecoration: "none",
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
               >
-                contact@dielectric.ro
+                office@dielectric-cube.ro
               </Link>
             </Box>
             <Box
@@ -97,7 +99,9 @@ const Footer = () => {
               <LocationOn
                 sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
               />
-              <Typography variant="body2">Timișoara, România</Typography>
+              <Typography variant="body2">
+                Timișoara Str. Gavril Musicescu Nr. 22
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -122,6 +126,9 @@ const Footer = () => {
                   textDecoration: "none",
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
+                onClick={() => {
+                  navigate("/despre");
+                }}
               >
                 Despre noi
               </Link>
@@ -132,6 +139,9 @@ const Footer = () => {
                   mb: 1,
                   textDecoration: "none",
                   "&:hover": { color: theme.palette.colors.cream },
+                }}
+                onClick={() => {
+                  navigate("/servicii");
                 }}
               >
                 Servicii
@@ -144,8 +154,11 @@ const Footer = () => {
                   textDecoration: "none",
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
+                onClick={() => {
+                  navigate("/preturi");
+                }}
               >
-                Calculator preț
+                Prețuri
               </Link>
               <Link
                 href="#"
@@ -154,6 +167,9 @@ const Footer = () => {
                   mb: 1,
                   textDecoration: "none",
                   "&:hover": { color: theme.palette.colors.cream },
+                }}
+                onClick={() => {
+                  navigate("/portofoliu");
                 }}
               >
                 Portofoliu

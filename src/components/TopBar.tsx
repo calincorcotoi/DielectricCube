@@ -15,12 +15,13 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
 
 const dielectricLogo = "/logo/dielectric-logo.jpg";
 const dielectricLogoText = "/logo/dielectric-logo-text.png";
 
 interface HeaderProps {
-  navItems: string[];
+  navItems: { label: string; path: string }[];
   isMobile: boolean;
   theme: Theme;
   handleDrawerToggle: () => void;
@@ -31,136 +32,176 @@ const Header: React.FC<HeaderProps> = ({
   isMobile,
   theme,
   handleDrawerToggle,
-}) => (
-  <AppBar
-    position="sticky"
-    sx={{ bgcolor: "#fff", color: theme.palette.colors.darkBlue }}
-  >
-    <Toolbar
-      sx={{
-        display: "flex",
-        justifyContent: isMobile ? "space-between" : "center",
-        alignItems: "center",
-        padding: isMobile ? "0 16px" : "0 32px",
-      }}
+}) => {
+  const navigate = useNavigate();
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
+  return (
+    <AppBar
+      position="sticky"
+      sx={{ bgcolor: "#fff", color: theme.palette.colors.darkBlue }}
     >
-      <Box
+      <Toolbar
         sx={{
           display: "flex",
+          justifyContent: isMobile ? "space-between" : "center",
           alignItems: "center",
-          mr: isMobile ? 0 : 16,
+          padding: isMobile ? "0 16px" : "0 32px",
         }}
       >
         <Box
-          component="img"
-          src={dielectricLogo}
-          alt="Dielectric Cube"
-          sx={isMobile ? { height: 50 } : { height: 60 }}
-        />
-        <Box
-          component="img"
-          src={dielectricLogoText}
-          alt="Dielectric Cube"
-          sx={isMobile ? { height: 27, maxWidth: "70%" } : { height: 27 }}
-        />
-      </Box>
-      {isMobile ? (
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="end"
-          onClick={handleDrawerToggle}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            mr: isMobile ? 0 : 16,
+            cursor: "pointer",
+          }}
+          onClick={handleLogoClick}
         >
-          <MenuIcon />
-        </IconButton>
-      ) : (
-        <Box sx={{ display: "flex" }}>
-          {navItems.map((item, index) => {
-            const colors = [
-              theme.palette.colors.darkBlue,
-              theme.palette.colors.darkBlue,
-              theme.palette.colors.darkBlue,
-              theme.palette.colors.darkBlue,
-            ];
-            return (
-              <Button
-                key={item}
-                sx={{
-                  mx: 1.5,
-                  px: 1,
-                  color: theme.palette.colors.darkBlue,
-                  borderBottom: "3px solid transparent",
-                  borderRadius: 0,
-                  "&:hover": {
-                    borderBottom: `3px solid ${colors[index]}`,
-                    backgroundColor: "transparent",
-                  },
-                  fontSize: "1rem",
-                }}
-              >
-                {item}
-              </Button>
-            );
-          })}
+          <Box
+            component="img"
+            src={dielectricLogo}
+            alt="Dielectric Cube"
+            sx={isMobile ? { height: 50 } : { height: 60 }}
+          />
+          <Box
+            component="img"
+            src={dielectricLogoText}
+            alt="Dielectric Cube"
+            sx={isMobile ? { height: 27, maxWidth: "70%" } : { height: 27 }}
+          />
         </Box>
-      )}
-    </Toolbar>
-  </AppBar>
-);
+        {isMobile ? (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <Box sx={{ display: "flex" }}>
+            {navItems.map((item, index) => {
+              const colors = [
+                theme.palette.colors.dielectricRed,
+                theme.palette.colors.dielectricRed,
+                theme.palette.colors.dielectricRed,
+                theme.palette.colors.dielectricRed,
+              ];
+              return (
+                <Button
+                  key={item.label}
+                  onClick={() => handleNavClick(item.path)}
+                  sx={{
+                    mx: 1.5,
+                    px: 1,
+                    color: theme.palette.colors.darkBlue,
+                    borderBottom: "3px solid transparent",
+                    borderRadius: 0,
+                    "&:hover": {
+                      borderBottom: `3px solid ${colors[index]}`,
+                      backgroundColor: "transparent",
+                    },
+                    fontSize: "1rem",
+                  }}
+                >
+                  {item.label}
+                </Button>
+              );
+            })}
+          </Box>
+        )}
+      </Toolbar>
+    </AppBar>
+  );
+};
 
 interface DrawerMenuProps {
-  navItems: string[];
+  navItems: { label: string; path: string }[];
   handleDrawerToggle: () => void;
 }
 
 const DrawerMenu: React.FC<DrawerMenuProps> = ({
   navItems,
   handleDrawerToggle,
-}) => (
-  <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        py: 2,
-      }}
-    >
+}) => {
+  const navigate = useNavigate();
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    handleDrawerToggle();
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
+    handleDrawerToggle();
+  };
+
+  return (
+    <Box sx={{ textAlign: "center" }}>
       <Box
-        component="img"
-        src={dielectricLogo}
-        alt="Dielectric Cube"
         sx={{
-          height: 40,
-          mr: -1,
-          width: "70%",
-          maxHeight: "70%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          py: 2,
+          cursor: "pointer",
         }}
-      />
+        onClick={handleLogoClick}
+      >
+        <Box
+          component="img"
+          src={dielectricLogo}
+          alt="Dielectric Cube"
+          sx={{
+            height: 40,
+            mr: -1,
+            width: "70%",
+            maxHeight: "70%",
+          }}
+        />
+      </Box>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem
+            key={item.label}
+            disablePadding
+            onClick={() => handleNavClick(item.path)}
+          >
+            <ListItemText
+              primary={item.label}
+              sx={{
+                textAlign: "center",
+                py: 1.5,
+                "& .MuiTypography-root": { fontWeight: 500, fontSize: "1rem" },
+              }}
+            />
+          </ListItem>
+        ))}
+      </List>
     </Box>
-    <Divider />
-    <List>
-      {navItems.map((item) => (
-        <ListItem key={item} disablePadding>
-          <ListItemText
-            primary={item}
-            sx={{
-              textAlign: "center",
-              py: 1.5,
-              "& .MuiTypography-root": { fontWeight: 500, fontSize: "1rem" },
-            }}
-          />
-        </ListItem>
-      ))}
-    </List>
-  </Box>
-);
+  );
+};
 
 const TopBar: React.FC = () => {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const navItems = ["Despre", "Servicii", "Calculator", "Portofoliu"];
+  const navItems = [
+    { label: "Despre", path: "/despre" },
+    { label: "Servicii", path: "/servicii" },
+    { label: "Prețuri", path: "/preturi" },
+    { label: "Portofoliu", path: "/portofoliu" },
+  ];
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   return (

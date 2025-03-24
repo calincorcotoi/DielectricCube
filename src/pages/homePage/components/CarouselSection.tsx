@@ -1,4 +1,10 @@
-import { ArrowBack, ArrowForward, Collections, Engineering, FlashOn } from "@mui/icons-material";
+import {
+  ArrowBack,
+  ArrowForward,
+  Collections,
+  Engineering,
+  FlashOn,
+} from "@mui/icons-material";
 import {
   useMediaQuery,
   Card,
@@ -12,6 +18,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useState, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const after1 = "/interventiiRapide/after1.jpg";
 const after2 = "/interventiiRapide/after2.jpg";
@@ -157,7 +164,7 @@ const SlideShow: React.FC<SlideShowProps> = ({
         <Box
           sx={{
             position: "relative",
-            height: 350,
+            height: 250,
             width: "100%",
             transform: isAnimating
               ? `translateX(${slideDirection === "left" ? "-1%" : "1%"})`
@@ -168,7 +175,7 @@ const SlideShow: React.FC<SlideShowProps> = ({
         >
           <CardMedia
             component="img"
-            height="350"
+            height="300"
             image={images[index].src}
             alt={images[index].desc}
             sx={{
@@ -180,7 +187,6 @@ const SlideShow: React.FC<SlideShowProps> = ({
       </Box>
       <CardContent sx={{ pt: 0 }}>
         <Typography
-          variant="body1"
           sx={{
             fontWeight: "medium",
             minHeight: 60,
@@ -232,16 +238,16 @@ const SlideShow: React.FC<SlideShowProps> = ({
 const CarouselSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+  const navigate = useNavigate();
   const slideShowData = [
     {
-      icon: <FlashOn sx={{ fontSize: 30 }} />,
+      icon: <Engineering sx={{ fontSize: 30 }} />,
       title: "Lucrări complexe",
       images: imagesWithDescriptions.complexWorks,
       color: theme.palette.colors.darkBlue,
     },
     {
-      icon: <Engineering sx={{ fontSize: 30 }} />,
+      icon: <FlashOn sx={{ fontSize: 30 }} />,
       title: "Intervenții Urgente",
       images: imagesWithDescriptions.emergencies,
       color: theme.palette.colors.dielectricRed,
@@ -359,6 +365,9 @@ const CarouselSection = () => {
                     color: theme.palette.colors.darkBlue,
                     boxShadow: `0 6px 15px rgba(0,0,0,0.2), 0 0 0 2px ${theme.palette.colors.darkBlue}`,
                   },
+                }}
+                onClick={() => {
+                  navigate("/portofoliu");
                 }}
               >
                 Vezi toate lucrările

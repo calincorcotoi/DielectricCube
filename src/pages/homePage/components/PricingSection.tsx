@@ -1,10 +1,32 @@
-import { Assessment, Description, Handshake, LocalOffer, Payments, PriceCheck, Receipt, Verified } from "@mui/icons-material";
-import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Assessment,
+  Description,
+  Handshake,
+  LocalOffer,
+  Payments,
+  PriceCheck,
+  Receipt,
+  Verified,
+} from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Divider,
+  Grid,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const PricingSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+  const navigate = useNavigate();
   // Icon components to use in the pricing cards
   const pricingCards = [
     {
@@ -72,7 +94,7 @@ const PricingSection = () => {
       <Container maxWidth="lg">
         <Card
           sx={{
-            p: 3,
+            p: isMobile ? 0 : 3,
             borderRadius: 2,
             background: `linear-gradient(to right, ${theme.palette.colors.cream}, white)`,
           }}
@@ -85,6 +107,7 @@ const PricingSection = () => {
               gutterBottom
               sx={{
                 mb: 1,
+                p: isMobile ? 3 : 0,
                 color: theme.palette.colors.darkBlue,
                 fontWeight: 600,
                 position: "relative",
@@ -109,6 +132,7 @@ const PricingSection = () => {
               align="center"
               sx={{
                 mb: 5,
+                p: isMobile ? 3 : 0,
                 color: "text.secondary",
                 maxWidth: "800px",
                 mx: "auto",
@@ -298,6 +322,9 @@ const PricingSection = () => {
                       color: theme.palette.colors.dielectricRed,
                       boxShadow: `0 6px 15px rgba(0,0,0,0.2), 0 0 0 2px ${theme.palette.colors.dielectricRed}`,
                     },
+                  }}
+                  onClick={() => {
+                    navigate("/preturi");
                   }}
                 >
                   Prețuri

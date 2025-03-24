@@ -17,6 +17,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useState } from "react";
+import ButtonHoverEffect from "../../../components/ButtonHoverEffect";
 const atestatAnre = "/atestate/anre.png";
 
 const CertificationsSection = () => {
@@ -65,7 +66,7 @@ const CertificationsSection = () => {
         <Card
           elevation={3}
           sx={{
-            p: 3,
+            p: isMobile ? 0 : 3,
             mb: 4,
             borderRadius: 2,
             background: `linear-gradient(to right, ${theme.palette.colors.cream}, white)`,
@@ -79,6 +80,7 @@ const CertificationsSection = () => {
               gutterBottom
               sx={{
                 mb: 1,
+                p: isMobile ? 3 : 0,
                 color: theme.palette.colors.darkBlue,
                 fontWeight: 600,
                 position: "relative",
@@ -103,6 +105,7 @@ const CertificationsSection = () => {
               align="center"
               sx={{
                 mb: 5,
+                p: isMobile ? 3 : 0,
                 color: "text.secondary",
                 maxWidth: "800px",
                 mx: "auto",
@@ -231,29 +234,13 @@ const CertificationsSection = () => {
                 Certificat ANRE
               </Button>
 
-              <Button
-                variant="contained"
-                size="large"
+              <ButtonHoverEffect
                 onClick={handleOpenIGPR}
                 startIcon={<Verified />}
-                sx={{
-                  py: 1.5,
-                  px: 4,
-                  bgcolor: theme.palette.colors.dielectricRed,
-                  color: "white",
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                  transition: "all 0.3s",
-                  "&:hover": {
-                    bgcolor: "white",
-                    color: theme.palette.colors.dielectricRed,
-                    boxShadow: `0 6px 15px rgba(0,0,0,0.2), 0 0 0 2px ${theme.palette.colors.dielectricRed}`,
-                  },
-                }}
+                color={theme.palette.colors.dielectricRed}
               >
                 Certificat IGPR
-              </Button>
+              </ButtonHoverEffect>
             </Box>
           </CardContent>
         </Card>
