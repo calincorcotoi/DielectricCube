@@ -247,7 +247,7 @@ const PortfolioPage = () => {
         <Card
           elevation={3}
           sx={{
-            p: 3,
+            p: isMobile ? 0 : 3,
             mb: 4,
             borderRadius: 2,
             background: `linear-gradient(to right, ${theme.palette.colors.cream}, white)`,
@@ -261,6 +261,7 @@ const PortfolioPage = () => {
               gutterBottom
               sx={{
                 mb: 1,
+                p: isMobile ? 3 : 0,
                 color: theme.palette.colors.darkBlue,
                 fontWeight: 600,
                 position: "relative",
@@ -285,6 +286,7 @@ const PortfolioPage = () => {
               align="center"
               sx={{
                 mb: 5,
+                p: isMobile ? 3 : 0,
                 color: "text.secondary",
                 maxWidth: "800px",
                 mx: "auto",
@@ -309,7 +311,7 @@ const PortfolioPage = () => {
               <Tabs
                 value={activeCategory}
                 onChange={handleCategoryChange}
-                variant={isMobile ? "scrollable" : "fullWidth"}
+                variant="fullWidth"
                 scrollButtons="auto"
                 indicatorColor="primary"
                 textColor="primary"
@@ -321,7 +323,9 @@ const PortfolioPage = () => {
                   "& .MuiTab-root": {
                     fontWeight: 600,
                     py: 2,
+
                     minHeight: isSmall ? "auto" : 70,
+                    minWidth: isMobile ? 0 : undefined,
                   },
                   "& .Mui-selected": {
                     color: `${theme.palette.colors.darkBlue} !important`,
@@ -332,36 +336,36 @@ const PortfolioPage = () => {
                   icon={<Construction />}
                   label="Toate"
                   value="all"
-                  iconPosition="start"
-                  sx={{ fontSize: isSmall ? "0.8rem" : "0.9rem" }}
+                  iconPosition={isMobile ? "top" : "start"}
+                  sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
                 <Tab
                   icon={<Home />}
                   label="Rezidențiale"
                   value="residential"
-                  iconPosition="start"
-                  sx={{ fontSize: isSmall ? "0.8rem" : "0.9rem" }}
+                  iconPosition={isMobile ? "top" : "start"}
+                  sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
                 <Tab
                   icon={<Business />}
                   label="Comerciale"
                   value="commercial"
-                  iconPosition="start"
-                  sx={{ fontSize: isSmall ? "0.8rem" : "0.9rem" }}
+                  iconPosition={isMobile ? "top" : "start"}
+                  sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
                 <Tab
                   icon={<FlashOn />}
                   label="Urgențe"
                   value="emergency"
-                  iconPosition="start"
-                  sx={{ fontSize: isSmall ? "0.8rem" : "0.9rem" }}
+                  iconPosition={isMobile ? "top" : "start"}
+                  sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
                 <Tab
                   icon={<Engineering />}
                   label="Speciale"
                   value="specialProjects"
-                  iconPosition="start"
-                  sx={{ fontSize: isSmall ? "0.8rem" : "0.9rem" }}
+                  iconPosition={isMobile ? "top" : "start"}
+                  sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
               </Tabs>
             </Paper>
