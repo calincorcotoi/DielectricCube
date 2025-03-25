@@ -33,7 +33,7 @@ const PricingSection = () => {
       title: "Evaluare Gratuită",
       icon: <Assessment sx={{ fontSize: 40 }} />,
       description:
-        "Evaluăm nevoile tale și îți oferim o consultare inițială gratuită pentru a înțelege exact ce lucrări sunt necesare.",
+        "Evaluăm nevoile tale și îți oferim consultanță inițială gratuită pentru a înțelege exact ce lucrări sunt necesare.",
       highlight: "Fără costuri inițiale",
       color: theme.palette.colors.darkBlue,
     },
@@ -41,7 +41,7 @@ const PricingSection = () => {
       title: "Ofertă Detaliată",
       icon: <Description sx={{ fontSize: 40 }} />,
       description:
-        "Primești o ofertă clară cu toate costurile defalcate pe materiale și manoperă înainte de a începe orice lucrare.",
+        "Primești o ofertă clară cu toate costurile atât pe materiale și manoperă înainte de a începe orice lucrare.",
       highlight: "Transparență totală",
       color: theme.palette.colors.dielectricRed,
     },
@@ -299,8 +299,8 @@ const PricingSection = () => {
                     transparente.
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Contactează-ne pentru o evaluare și o ofertă detaliată fără
-                    niciun angajament.
+                    Contactează-ne pentru o evaluare tehnică și o ofertă
+                    detaliată fără niciun angajament.
                   </Typography>
                 </Box>
 

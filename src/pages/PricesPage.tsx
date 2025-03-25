@@ -39,6 +39,7 @@ const PricesPage = () => {
       title: "Instalații Electrice - Manoperă",
       icon: <ConstructionOutlined />,
       items: [
+        { name: "Montare priză simplă", price: "123 lei" },
         { name: "Montare priză simplă", price: "30 lei" },
         { name: "Montare întrerupător simplu", price: "30 lei" },
         { name: "Montare priză dublă", price: "40 lei" },
@@ -311,6 +312,20 @@ const PricesPage = () => {
                     </AccordionSummary>
                     <AccordionDetails sx={{ p: 0 }}>
                       <Table>
+                        <TableHead>
+                          <TableRow
+                            sx={{
+                              bgcolor: "rgba(0, 0, 0, 0.04)",
+                            }}
+                          >
+                            <TableCell sx={{ fontWeight: 600 }}>
+                              Denumire serviciu/produs
+                            </TableCell>
+                            <TableCell align="right" sx={{ fontWeight: 600 }}>
+                              Preț orientativ
+                            </TableCell>
+                          </TableRow>
+                        </TableHead>
                         <TableBody>
                           {category.items.map((item, itemIndex) => (
                             <TableRow

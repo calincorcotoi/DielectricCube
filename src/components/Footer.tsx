@@ -1,4 +1,11 @@
-import { Call, Email, LocationOn, Phone } from "@mui/icons-material";
+import {
+  Call,
+  Email,
+  Facebook,
+  LinkedIn,
+  LocationOn,
+  Phone,
+} from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -103,6 +110,29 @@ const Footer = () => {
                 Timișoara Str. Gavril Musicescu Nr. 22
               </Typography>
             </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Facebook
+                sx={{ mr: 1, color: theme.palette.colors.dielectricRed }}
+              />
+              <Link
+                href="https://www.facebook.com/profile.php?id=100069137602216&rdid=OYooJzuq7wMD34Uh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F12Ht4DGpsvG%2F#"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "white",
+                  textDecoration: "none",
+                  "&:hover": { color: theme.palette.colors.cream },
+                }}
+              >
+                Facebook
+              </Link>
+            </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography
@@ -184,13 +214,10 @@ const Footer = () => {
               Program de Lucru
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              Luni - Vineri: 08:00 - 20:00
+              Luni - Vineri: 08:00 - 16:00
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              Sâmbătă: 09:00 - 16:00
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 3 }}>
-              Duminică: Urgențe
+              Sâmbătă -Duminică: Urgențe
             </Typography>
             <Box sx={{ mt: 2 }}>
               <Button
@@ -220,6 +247,30 @@ const Footer = () => {
               © {new Date().getFullYear()} Dielectric Cube - Make Light in
               Darkness. Toate drepturile rezervate.
             </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                mt: 2,
+                gap: 1,
+              }}
+            >
+              <Typography variant="body2">Facut de Călin Corcoțoi</Typography>
+              <Link
+                href="https://www.linkedin.com/in/c%C4%83lin-corco%C8%9Boi-87145b162/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  "&:hover": { color: theme.palette.colors.cream },
+                }}
+              >
+                <LinkedIn fontSize="small" />
+              </Link>
+            </Box>
           </Grid>
         </Grid>
       </Container>

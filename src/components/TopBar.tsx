@@ -17,7 +17,7 @@ import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 
-const dielectricLogo = "/logo/dielectric-logo.jpg";
+const dielectricLogo = "/logo/dielectric-logo.png";
 const dielectricLogoText = "/logo/dielectric-logo-text.png";
 
 interface HeaderProps {
@@ -134,7 +134,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
   handleDrawerToggle,
 }) => {
   const navigate = useNavigate();
-
+  const theme = useTheme();
   const handleNavClick = (path: string) => {
     navigate(path);
     handleDrawerToggle();
@@ -164,8 +164,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
           sx={{
             height: 40,
             mr: -1,
-            width: "70%",
-            maxHeight: "70%",
           }}
         />
       </Box>
@@ -176,13 +174,23 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
             key={item.label}
             disablePadding
             onClick={() => handleNavClick(item.path)}
+            sx={{
+              "&:hover": {
+                backgroundColor: theme.palette.action.hover,
+              },
+            }}
           >
             <ListItemText
               primary={item.label}
               sx={{
                 textAlign: "center",
                 py: 1.5,
-                "& .MuiTypography-root": { fontWeight: 500, fontSize: "1rem" },
+                px: 3,
+                "& .MuiTypography-root": {
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  color: theme.palette.text.primary,
+                },
               }}
             />
           </ListItem>

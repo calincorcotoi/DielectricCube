@@ -25,8 +25,8 @@ import {
   Home,
   FlashOn,
   ElectricalServices,
-  Engineering,
   Construction,
+  CellTower,
 } from "@mui/icons-material";
 
 // Portfolio categories and items
@@ -136,36 +136,37 @@ const portfolioData = {
     ],
   },
   specialProjects: {
-    title: "Proiecte Speciale",
-    icon: <Engineering />,
-    description: "Proiecte electrice complexe și inovatoare",
+    title: "Proiecte in Telecomunicații",
+    icon: <CellTower />,
+    description:
+      "Implementare infrastructură și sisteme de telecomunicații performante",
     items: [
       {
         id: "sp-1",
-        title: "Instalație Electrică Casă Inteligentă",
+        title: "Rețea Fibră Optică Clădire Birouri",
         description:
-          "Proiectarea și implementarea unui sistem electric complet pentru o casă inteligentă, integrând controlul iluminatului, încălzirii și securității.",
-        images: ["/tablou7.jpg", "/exteriorCasa.jpg", "/aparatMasura.jpg"],
-        client: "Casă unifamilială de lux, Moșnița Nouă",
-        location: "Moșnița Nouă, Timiș",
+          "Instalarea unei rețele complete de fibră optică într-o clădire de birouri, incluzând cablare structurată, rack-uri și echipamente de distribuție.",
+        images: ["/rackServer.jpg", "/fibraOptica.jpg", "/retea.jpg"],
+        client: "Centru de afaceri, City Business Centre",
+        location: "Timișoara, City Business Centre",
       },
       {
         id: "sp-2",
-        title: "Sistem Fotovoltaic Rezidențial",
+        title: "Sistem Telecomunicații Industrial",
         description:
-          "Instalarea unui sistem fotovoltaic pentru o locuință, incluzând panourile solare, invertorul și integrarea cu rețeaua electrică existentă.",
-        images: ["/exteriorCasa.jpg", "/aparatMasura.jpg", "/tablou9.jpg"],
-        client: "Proprietar casă ecologică, Giroc",
-        location: "Giroc, Timiș",
+          "Implementarea unui sistem de telecomunicații pentru o fabrică, incluzând telefonie IP, rețea internă și conexiuni redundante.",
+        images: ["/serverRoom.jpg", "/telefonieIP.jpg", "/retea2.jpg"],
+        client: "Fabrică producție electronică, Parcul Industrial",
+        location: "Parcul Industrial Freidorf, Timișoara",
       },
       {
         id: "sp-3",
-        title: "Modernizare Instalație Veche",
+        title: "Turnuri Telecomunicații Rurale",
         description:
-          "Modernizarea completă a unei instalații electrice vechi într-o clădire istorică, păstrând elementele arhitecturale originale.",
-        images: ["/tablou1.jpg", "/cabluri2.jpg", "/intrerupator.jpg"],
-        client: "Clădire istorică din centrul orașului",
-        location: "Timișoara, Cetate",
+          "Instalarea și configurarea echipamentelor pentru turnuri de telecomunicații în zone rurale, oferind acces la internet și semnal mobil.",
+        images: ["/turn.jpg", "/antene.jpg", "/cabinet.jpg"],
+        client: "Operator regional de telecomunicații",
+        location: "Diverse localități din județul Timiș",
       },
     ],
   },
@@ -189,6 +190,7 @@ const PortfolioPage = () => {
 
   // State for modal
   const [openModal, setOpenModal] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -201,6 +203,7 @@ const PortfolioPage = () => {
   };
 
   // Handle opening modal for a portfolio item
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOpenModal = (item: any) => {
     setSelectedItem(item);
     setCurrentImageIndex(0);
@@ -361,8 +364,8 @@ const PortfolioPage = () => {
                   sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
                 <Tab
-                  icon={<Engineering />}
-                  label="Speciale"
+                  icon={<CellTower />}
+                  label="Telecom"
                   value="specialProjects"
                   iconPosition={isMobile ? "top" : "start"}
                   sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}

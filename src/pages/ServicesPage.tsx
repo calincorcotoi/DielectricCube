@@ -36,6 +36,10 @@ const ServicesPage = () => {
       details: [
         "Instalații electrice complete pentru case și apartamente",
         "Modernizarea instalațiilor vechi",
+        "Măsurători și verificări periodice",
+        "Măsurători de priză de pământ",
+        "Emitere declarație de conformitate",
+        "Întocmire dosar prosumator",
         "Montare tablouri electrice modulare",
         "Instalare circuite dedicate pentru electrocasnice",
         "Soluții de iluminat economic și decorativ",
@@ -52,6 +56,8 @@ const ServicesPage = () => {
         "Instalații de forță pentru utilaje și echipamente",
         "Rețele structurate și prize de date",
         "Instalații de iluminat industrial",
+        "Măsurători împământări anuale industriale",
+        "Intocmire dosar tehnic utilizare",
         "Sisteme de monitorizare a consumului electric",
       ],
     },
@@ -77,10 +83,10 @@ const ServicesPage = () => {
       color: theme.palette.colors.dielectricRed,
       details: [
         "Disponibilitate 24/7 pentru urgențe electrice",
-        "Identificare și remediere scurtcircuite",
-        "Reparații tablouri electrice",
+        "Identificare și remediere defecte",
+        "Reparații panouri electrice",
         "Înlocuire siguranțe și dispozitive de protecție",
-        "Remedierea rapidă a penelor de curent",
+        "Remedierea rapidă a defectelor neprevăzute",
       ],
     },
   ];
@@ -385,9 +391,8 @@ const ServicesPage = () => {
               paragraph
               sx={{ mb: 4, p: isMobile ? 3 : 0, maxWidth: "800px", mx: "auto" }}
             >
-              Contactați-ne pentru o evaluare gratuită și o ofertă
-              personalizată. Suntem aici pentru a vă ajuta cu toate nevoile
-              electrice!
+              Contactați-ne pentru o evaluare tehnică gratuită și o ofertă
+              personalizată. Problema dumneavoastră divine prioritatea noastră!
             </Typography>
             <Box
               sx={{

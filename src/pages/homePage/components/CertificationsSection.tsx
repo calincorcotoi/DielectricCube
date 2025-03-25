@@ -1,8 +1,8 @@
 import {
   ElectricalServices,
   Security,
-  Power,
   Verified,
+  OfflineBolt,
 } from "@mui/icons-material";
 import {
   useMediaQuery,
@@ -18,7 +18,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import ButtonHoverEffect from "../../../components/ButtonHoverEffect";
+import { useNavigate } from "react-router-dom";
 const atestatAnre = "/atestate/anre.png";
+const atestatIgpr = "/atestate/igpr.png";
 
 const CertificationsSection = () => {
   // State for controlling modals
@@ -32,6 +34,7 @@ const CertificationsSection = () => {
   const handleCloseIGPR = () => setOpenIGPR(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
   // Serviciile electricianului
   const services = [
     {
@@ -47,10 +50,10 @@ const CertificationsSection = () => {
         "Instalare sisteme de alarmă, supraveghere video și control acces cu certificare IGPR.",
     },
     {
-      title: "Lucrări de Înaltă Tensiune",
-      icon: <Power />,
+      title: "Măsurători Prize de Pământ",
+      icon: <OfflineBolt />,
       description:
-        "Intervenții specializate la rețele de medie și înaltă tensiune cu autorizație specifică.",
+        "Verificare și testare profesională a rezistenței de dispersie a prizelor de pământ conform normativelor în vigoare.",
     },
   ];
 
@@ -182,7 +185,7 @@ const CertificationsSection = () => {
                       </Typography>
                       <Typography
                         variant="body2"
-                        onClick={() => console.log("Servicii Text Clicked")}
+                        onClick={() => navigate("/servicii")}
                         sx={{
                           mt: 2,
                           color: theme.palette.colors.darkBlue,
@@ -231,7 +234,7 @@ const CertificationsSection = () => {
                   },
                 }}
               >
-                Certificat ANRE
+                Autorizare ANRE
               </Button>
 
               <ButtonHoverEffect
@@ -239,14 +242,14 @@ const CertificationsSection = () => {
                 startIcon={<Verified />}
                 color={theme.palette.colors.dielectricRed}
               >
-                Certificat IGPR
+                Atestat IGPR
               </ButtonHoverEffect>
             </Box>
           </CardContent>
         </Card>
       </Container>
 
-      {/* Modal pentru Certificat ANRE */}
+      {/* Modal pentru Autorizare ANRE */}
       <Modal
         open={openANRE}
         onClose={handleCloseANRE}
@@ -280,7 +283,7 @@ const CertificationsSection = () => {
               textAlign: "center",
             }}
           >
-            Certificat ANRE
+            Autorizare ANRE
           </Typography>
 
           <Box
@@ -295,7 +298,7 @@ const CertificationsSection = () => {
           >
             <img
               src={atestatAnre}
-              alt="Certificat ANRE"
+              alt="Autorizare ANRE"
               style={{
                 maxWidth: "100%",
                 maxHeight: "70vh",
@@ -323,7 +326,7 @@ const CertificationsSection = () => {
         </Box>
       </Modal>
 
-      {/* Modal pentru Certificat IGPR */}
+      {/* Modal pentru Atestat IGPR */}
       <Modal
         open={openIGPR}
         onClose={handleCloseIGPR}
@@ -357,7 +360,7 @@ const CertificationsSection = () => {
               textAlign: "center",
             }}
           >
-            Certificat IGPR
+            Atestat IGPR
           </Typography>
 
           <Box
@@ -371,8 +374,8 @@ const CertificationsSection = () => {
             }}
           >
             <img
-              src={atestatAnre}
-              alt="Certificat IGPR"
+              src={atestatIgpr}
+              alt="Atestat IGPR"
               style={{
                 maxWidth: "100%",
                 maxHeight: "70vh",
