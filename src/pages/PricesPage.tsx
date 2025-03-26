@@ -39,51 +39,329 @@ const PricesPage = () => {
       title: "Instalații Electrice - Manoperă",
       icon: <ConstructionOutlined />,
       items: [
-        { name: "Montare priză simplă", price: "123 lei" },
-        { name: "Montare priză simplă", price: "30 lei" },
-        { name: "Montare întrerupător simplu", price: "30 lei" },
-        { name: "Montare priză dublă", price: "40 lei" },
-        { name: "Montare întrerupător dublu", price: "40 lei" },
-        { name: "Montare aplică/plafonieră", price: "40-60 lei" },
         {
-          name: "Montare tablou electric apartament (până la 8 module)",
+          name: "Serviciu de deplasare pe raza localitatii Timisoara lucrari neprogramate in intervalul orar 08:00-17:00",
+          unit: "buc",
+          price: "75 lei",
+        },
+        {
+          name: "Serviciu de deplasare pe raza localitatii Timisoara lucrari neprogramate in intervalul orar 17:00-22:00",
+          unit: "buc",
+          price: "120 lei",
+        },
+        {
+          name: "Serviciu de deplasare pe raza localitatii Timisoara lucrari neprogramate in intervalul orar 22:00-06:00",
+          unit: "buc",
+          price: "240 lei",
+        },
+        {
+          name: "Serviciu diagnosticare defect in instalatia electrica",
+          unit: "ora",
+          price: "140 lei",
+        },
+        {
+          name: "Serviciu manopera electrician lucrari atipice",
+          unit: "ora",
+          price: "140 lei",
+        },
+        {
+          name: "Serviciu achizitie materiale electrice in Timisoara",
+          unit: "buc",
+          price: "75 lei",
+        },
+        {
+          name: "Serviciu antemasuratori pentru instalații electrice noi in Timisoara",
+          unit: "buc",
+          price: "250 lei",
+        },
+        { name: "Tarif km suplimentari pe traseu", unit: "km", price: "3 lei" },
+        {
+          name: "Serviciu Demontare aparataj electric",
+          unit: "buc",
+          price: "15 lei",
+        },
+        {
+          name: "Serviciu Demontare siguranță protectie circuit electric",
+          unit: "buc",
+          price: "30 lei",
+        },
+        {
+          name: "Serviciu Adaugare siguranta protectie monofazata in panou electric existent",
+          unit: "buc",
+          price: "50 lei",
+        },
+        {
+          name: "Serviciu Adaugare siguranta protectie trifazata in panou electric existent",
+          unit: "buc",
+          price: "75 lei",
+        },
+        {
+          name: "Serviciu Demontare corp de iluminat (aplică, plafonieră, lampă, spot)",
+          unit: "buc",
+          price: "35 lei",
+        },
+        {
+          name: "Serviciu Demontare corp de iluminat (lustră)",
+          unit: "buc",
+          price: "50 lei",
+        },
+        {
+          name: "Serviciu montaj corp de iluminat (aplică, plafonieră, lampă, spot)",
+          unit: "buc",
+          price: "55 lei",
+        },
+        {
+          name: "Serviciu montaj corp de iluminat (lustră) pana in 5 kg",
+          unit: "buc",
+          price: "95 lei",
+        },
+        {
+          name: "Serviciu montaj corp de iluminat (lustră) peste 5 kg",
+          unit: "buc",
+          price: "300-500 lei",
+        },
+        {
+          name: "Serviciu desigilare resigilare contor electric",
+          unit: "buc",
+          price: "300 lei",
+        },
+        {
+          name: "Serviciu montaj cutie panou electric monofazat 12-36 module PT",
+          unit: "buc",
+          price: "175 lei",
+        },
+        {
+          name: "Serviciu montaj cutie panou electric monofazat 48-120 Module PT",
+          unit: "buc",
+          price: "450 lei",
+        },
+        {
+          name: "Serviciu montaj doza aparataj electric modular 3 Module/caramida",
+          unit: "buc",
+          price: "65 lei",
+        },
+        {
+          name: "Serviciu montaj doza aparataj electric modular 4 Module/caramida",
+          unit: "buc",
+          price: "75 lei",
+        },
+        {
+          name: "Serviciu montaj doza aparataj electric modular 6 Module/caramida",
+          unit: "buc",
+          price: "85 lei",
+        },
+        {
+          name: "Serviciu montaj aparataj electric rotund CLASIC",
+          unit: "buc",
+          price: "50 lei",
+        },
+        {
+          name: "Serviciu montaj aparataj electric MODULAR",
+          unit: "buc",
+          price: "25 lei",
+        },
+        {
+          name: "Serviciu montaj plită electrică inductie monofazata/trifazata",
+          unit: "buc",
           price: "150 lei",
         },
         {
-          name: "Montare tablou electric casă (12-24 module)",
-          price: "200-350 lei",
+          name: "Serviciu montaj cuptor electric",
+          unit: "buc",
+          price: "120 lei",
         },
         {
-          name: "Realizare circuit electric îngropat (per metru)",
-          price: "15-25 lei",
+          name: "Serviciu Montaj tub rigid PVC",
+          unit: "metru liniar",
+          price: "5 lei",
         },
         {
-          name: "Realizare circuit electric aparent (per metru)",
-          price: "12-20 lei",
+          name: "Serviciu Montaj tub flexibil COPEX pardoseala",
+          unit: "metru liniar",
+          price: "5 lei",
         },
-        { name: "Înlocuire tablou electric vechi", price: "100-250 lei" },
+        {
+          name: "Serviciu Montaj tub flexibil COPEX tavan",
+          unit: "metru liniar",
+          price: "10 lei",
+        },
+        {
+          name: "Serviciu instalare cablu CYY-F,NYM-J,EYY-J prin copex 3x2,5 mmp",
+          unit: "metru liniar",
+          price: "7.5 lei",
+        },
+        {
+          name: "Serviciu fixare cablu CYY-F,NYM-J,EYY-J prin copex 3x2,5 mmp pe pardoseala",
+          unit: "metru liniar",
+          price: "5 lei",
+        },
+        {
+          name: "Serviciu fixare cablu CYY-F,NYM-J,EYY-J prin copex 3x2,5 mmp pe tavan",
+          unit: "metru liniar",
+          price: "15 lei",
+        },
+        {
+          name: "Serviciu realizare traseu electric spart caramida",
+          unit: "metru liniar",
+          price: "18 lei",
+        },
+        {
+          name: "Serviciu realizare traseu electric spart beton",
+          unit: "metru liniar",
+          price: "45 lei",
+        },
+        {
+          name: "Serviciu debitare/taiere caramida",
+          unit: "metru liniar",
+          price: "7.5 lei",
+        },
+        {
+          name: "Serviciu debitare/taiere beton",
+          unit: "metru liniar",
+          price: "25 lei",
+        },
+        {
+          name: "Serviciu carotare doza rotunda aparataj clasic caramida",
+          unit: "buc",
+          price: "55 lei",
+        },
+        {
+          name: "Serviciu carotare doza rotunda aparataj clasic beton",
+          unit: "buc",
+          price: "110 lei",
+        },
+        {
+          name: "Serviciu realizare impamantare artificiala pe adancime maxim 4 tarusi",
+          unit: "buc",
+          price: "800 lei",
+        },
+        {
+          name: "Serviciu realizare impamantare artificiala (fara serviciu de sapatura, fara materiale incluse)",
+          unit: "buc/tarus",
+          price: "200 lei",
+        },
       ],
     },
     {
       title: "Materiale Electrice",
       icon: <CableOutlined />,
       items: [
-        { name: "Priză simplă Schneider", price: "20-35 lei" },
-        { name: "Întrerupător simplu Schneider", price: "20-35 lei" },
         {
-          name: "Cablu electric cupru 3x1.5 mmp (per metru)",
-          price: "5-8 lei",
+          name: "Priza modulara Gewiss SCHUKO",
+          unit: "buc",
+          price: "10.5 lei",
         },
         {
-          name: "Cablu electric cupru 3x2.5 mmp (per metru)",
-          price: "7-10 lei",
+          name: "Priza modulara PANASONIC SCHUKO",
+          unit: "buc",
+          price: "12 lei",
         },
-        { name: "Doză aparat", price: "3-5 lei" },
-        { name: "Doză derivație", price: "5-8 lei" },
-        { name: "Tablou electric 8 module", price: "50-80 lei" },
-        { name: "Tablou electric 12 module", price: "70-120 lei" },
-        { name: "Tablou electric 24 module", price: "120-200 lei" },
-        { name: "Diferențial (protecție) 25A", price: "120-180 lei" },
+        {
+          name: "Priza modulara BTCINO SCHUKO",
+          unit: "buc",
+          price: "17.85 lei",
+        },
+        {
+          name: "Intrerupator modular Gewiss simplu",
+          unit: "buc",
+          price: "9 lei",
+        },
+        {
+          name: "Intrerupator modular Gewiss cap scara",
+          unit: "buc",
+          price: "11 lei",
+        },
+        {
+          name: "Intrerupator modular Gewiss cap cruce",
+          unit: "buc",
+          price: "15 lei",
+        },
+        { name: "Priza internet CAT 5 modular", unit: "buc", price: "55 lei" },
+        { name: "Priza internet TV modulara", unit: "buc", price: "30 lei" },
+        { name: "Rama suport 2M", unit: "buc", price: "4 lei" },
+        { name: "Rama suport 3M", unit: "buc", price: "4.5 lei" },
+        { name: "Rama suport 4M", unit: "buc", price: "6 lei" },
+        { name: "Rama suport 6M", unit: "buc", price: "8 lei" },
+        {
+          name: "Rama ornamentala Gewiss System 1M",
+          unit: "buc",
+          price: "9 lei",
+        },
+        {
+          name: "Rama ornamentala Gewiss System 2M",
+          unit: "buc",
+          price: "6.5 lei",
+        },
+        {
+          name: "Rama ornamentala Gewiss System 3M",
+          unit: "buc",
+          price: "5.9 lei",
+        },
+        {
+          name: "Rama ornamentala Gewiss System 4M",
+          unit: "buc",
+          price: "11.5 lei",
+        },
+        {
+          name: "Rama ornamentala Gewiss System 6M",
+          unit: "buc",
+          price: "11.99 lei",
+        },
+        {
+          name: "Doza modulara Gewiss caramida 3M",
+          unit: "buc",
+          price: "1.2 lei",
+        },
+        {
+          name: "Doza modulara Gewiss caramida 4M",
+          unit: "buc",
+          price: "3.7 lei",
+        },
+        {
+          name: "Doza modulara Gewiss caramida 6M",
+          unit: "buc",
+          price: "6.4 lei",
+        },
+        {
+          name: "Doza modulara Gewiss caramida 8M",
+          unit: "buc",
+          price: "10.9 lei",
+        },
+        {
+          name: "Doza modulara Gewiss caramida 12M",
+          unit: "buc",
+          price: "11 lei",
+        },
+        { name: "Rama suport contor monofazat", unit: "buc", price: "30 lei" },
+        { name: "Portfuzibil Monofazat 2P", unit: "buc", price: "45 lei" },
+        {
+          name: "Intrerupator diferential RCCB 2P 40A 30mA tip NOARK",
+          unit: "buc",
+          price: "120 lei",
+        },
+        {
+          name: "Intrerupator diferential RCCB 2P 40A 30mA tip SCHRACK",
+          unit: "buc",
+          price: "169 lei",
+        },
+        { name: "MCB 1P+N B16", unit: "buc", price: "27 lei" },
+        { name: "MCB 1P+N B10", unit: "buc", price: "27 lei" },
+        { name: "MCB 1P B16", unit: "buc", price: "19 lei" },
+        { name: "MCB 1P B10", unit: "buc", price: "19 lei" },
+        { name: "BUSBAR TIP FURCA", unit: "buc", price: "120 lei" },
+        { name: "PANOU ELECTRIC 12M PT", unit: "buc", price: "85 lei" },
+        { name: "PANOU ELECTRIC 18M PT", unit: "buc", price: "150 lei" },
+        { name: "PANOU ELECTRIC 24M PT", unit: "buc", price: "185 lei" },
+        { name: "PANOU ELECTRIC 36M PT", unit: "buc", price: "275 lei" },
+        { name: "CABLU CYY-F 3x2.5 mmp", unit: "ml", price: "5.5 lei" },
+        { name: "CABLU CYY-F 3x1.5 mmp", unit: "ml", price: "4.9 lei" },
+        { name: "CABLU NYM-J 3x2.5 mmp", unit: "ml", price: "6.4 lei" },
+        { name: "CABLU NYM-J 3x2.5 mmp", unit: "ml", price: "6 lei" },
+        { name: "CABLU EYY-J 3x2.5 mmp", unit: "ml", price: "9.52 lei" },
+        { name: "CABLU EYY-J 3x1.5 mmp", unit: "ml", price: "8.52 lei" },
+        { name: "COPEX FY 16 cu fir de tragere", unit: "ml", price: "1.5 lei" },
+        { name: "COPEX FY 20 cu fir de tragere", unit: "ml", price: "1.7 lei" },
+        { name: "COPEX FY 25 cu fir de tragere", unit: "ml", price: "1.9 lei" },
       ],
     },
     {
@@ -91,38 +369,55 @@ const PricesPage = () => {
       icon: <PowerOutlined />,
       items: [
         {
-          name: "Proiectare și instalare sistem electric casă",
-          price: "3000-8000 lei",
+          name: "Intocmire dosar de utilizare instalatie electrica",
+          unit: "buc",
+          price: "1500 lei",
         },
-        { name: "Instalare panou fotovoltaic", price: "800-1500 lei/panou" },
+        { name: "Intocmire dosar prosumator", unit: "buc", price: "2000 lei" },
         {
-          name: "Instalare sistem încălzire electrică",
-          price: "1500-4000 lei",
-        },
-        { name: "Instalare sistem smart home", price: "2000-5000 lei" },
-        { name: "Implementare sistem de automatizare", price: "1500-7000 lei" },
-      ],
-    },
-    {
-      title: "Intervenții și Service",
-      icon: <HandymanOutlined />,
-      items: [
-        {
-          name: "Identificare și remediere defect simplu",
-          price: "100-200 lei",
+          name: "Realizare masuratori impamantare si emitere buletin masura",
+          unit: "buc",
+          price: "300 lei",
         },
         {
-          name: "Intervenție urgentă în timpul programului",
-          price: "150 lei + manoperă",
+          name: "Verificari masuratori prize continuitate (raport anual ITM)",
+          unit: "buc",
+          price: "25 lei",
         },
         {
-          name: "Intervenție urgentă în afara programului",
-          price: "250 lei + manoperă",
+          name: "Realizare instalatie electrica apartament cu o camera beton maxim (maxim 8 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "6500 lei",
         },
-        { name: "Verificare instalație electrică", price: "150-300 lei" },
         {
-          name: "Consultanță pentru proiecte electrice (per oră)",
-          price: "100 lei",
+          name: "Realizare instalatie electrica apartament cu doua camere beton maxim (maxim 12 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "8500 lei",
+        },
+        {
+          name: "Realizare instalatie electrica apartament cu trei camere beton maxim (maxim 16 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "10500 lei",
+        },
+        {
+          name: "Realizare instalatie electrica apartament cu patru camere beton maxim (maxim 20 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "13000 lei",
+        },
+        {
+          name: "Realizare instalatie electrica casa standard (maxim 20 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "14000 lei",
+        },
+        {
+          name: "Realizare instalatie electrica casa medie (maxim 30 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "18000 lei",
+        },
+        {
+          name: "Realizare instalatie electrica casa (maxim 40 circuite dedicate / fara materiale incluse)",
+          unit: "buc",
+          price: "20000 lei",
         },
       ],
     },
@@ -233,8 +528,14 @@ const PricesPage = () => {
                               <TableCell sx={{ fontWeight: 600 }}>
                                 Denumire serviciu/produs
                               </TableCell>
+                              <TableCell
+                                align="center"
+                                sx={{ fontWeight: 600 }}
+                              >
+                                Unitate de măsură
+                              </TableCell>
                               <TableCell align="right" sx={{ fontWeight: 600 }}>
-                                Preț orientativ
+                                Preț orientativ fără TVA
                               </TableCell>
                             </TableRow>
                           </TableHead>
@@ -250,6 +551,9 @@ const PricesPage = () => {
                               >
                                 <TableCell component="th" scope="row">
                                   {item.name}
+                                </TableCell>
+                                <TableCell align="center">
+                                  {item.unit}
                                 </TableCell>
                                 <TableCell
                                   align="right"
@@ -311,50 +615,95 @@ const PricesPage = () => {
                       </Box>
                     </AccordionSummary>
                     <AccordionDetails sx={{ p: 0 }}>
-                      <Table>
-                        <TableHead>
-                          <TableRow
-                            sx={{
-                              bgcolor: "rgba(0, 0, 0, 0.04)",
-                            }}
-                          >
-                            <TableCell sx={{ fontWeight: 600 }}>
-                              Denumire serviciu/produs
-                            </TableCell>
-                            <TableCell align="right" sx={{ fontWeight: 600 }}>
-                              Preț orientativ
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {category.items.map((item, itemIndex) => (
+                      <TableContainer sx={{ overflowX: "auto", width: "100%" }}>
+                        <Table size="small">
+                          <TableHead>
                             <TableRow
-                              key={itemIndex}
                               sx={{
-                                "&:nth-of-type(odd)": {
-                                  bgcolor: "rgba(0, 0, 0, 0.02)",
-                                },
+                                bgcolor: "rgba(0, 0, 0, 0.04)",
                               }}
                             >
-                              <TableCell component="th" scope="row">
-                                {item.name}
+                              <TableCell
+                                align="left"
+                                sx={{
+                                  fontWeight: 600,
+                                  py: 1,
+                                  px: { xs: 1, sm: 2 },
+                                }}
+                              >
+                                Denumire serviciu/produs
+                              </TableCell>
+                              <TableCell
+                                align="center"
+                                sx={{
+                                  fontWeight: 600,
+                                  py: 1,
+                                  px: { xs: 1, sm: 2 },
+                                }}
+                              >
+                                Unitate de măsură
                               </TableCell>
                               <TableCell
                                 align="right"
                                 sx={{
                                   fontWeight: 600,
-                                  color:
-                                    index % 2 === 0
-                                      ? theme.palette.colors.darkBlue
-                                      : theme.palette.colors.dielectricRed,
+                                  py: 1,
+                                  px: { xs: 1, sm: 2 },
                                 }}
                               >
-                                {item.price}
+                                Preț orientativ fără TVA
                               </TableCell>
                             </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
+                          </TableHead>
+                          <TableBody>
+                            {category.items.map((item, itemIndex) => (
+                              <TableRow
+                                key={itemIndex}
+                                sx={{
+                                  "&:nth-of-type(odd)": {
+                                    bgcolor: "rgba(0, 0, 0, 0.02)",
+                                  },
+                                }}
+                              >
+                                <TableCell
+                                  align="left"
+                                  component="th"
+                                  scope="row"
+                                  sx={{
+                                    py: 1,
+                                    px: { xs: 1, sm: 5 },
+                                    maxWidth: { xs: "10px", sm: "none" },
+                                    whiteSpace: "normal",
+                                    wordBreak: "break-word",
+                                  }}
+                                >
+                                  {item.name}
+                                </TableCell>
+                                <TableCell
+                                  align="center"
+                                  sx={{ py: 1, px: { xs: 1, sm: 2 } }}
+                                >
+                                  {item.unit}
+                                </TableCell>
+                                <TableCell
+                                  align="right"
+                                  sx={{
+                                    fontWeight: 600,
+                                    py: 1,
+                                    px: { xs: 1, sm: 2 },
+                                    color:
+                                      index % 2 === 0
+                                        ? theme.palette.colors.darkBlue
+                                        : theme.palette.colors.dielectricRed,
+                                  }}
+                                >
+                                  {item.price}
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
                     </AccordionDetails>
                   </Accordion>
                 ))}
