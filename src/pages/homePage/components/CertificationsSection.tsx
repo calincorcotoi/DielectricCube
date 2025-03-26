@@ -19,8 +19,8 @@ import {
 import { useState } from "react";
 import ButtonHoverEffect from "../../../components/ButtonHoverEffect";
 import { useNavigate } from "react-router-dom";
-const atestatAnre = "/atestate/anre.png";
-const atestatIgpr = "/atestate/igpr.png";
+const atestatAnre = "/home/atestate/anre.png";
+const atestatIgpr = "/home/atestate/igpr.png";
 
 const CertificationsSection = () => {
   // State for controlling modals

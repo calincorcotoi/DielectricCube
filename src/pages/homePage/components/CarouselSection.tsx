@@ -20,61 +20,37 @@ import {
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const after1 = "/interventiiRapide/after1.jpg";
-const after2 = "/interventiiRapide/after2.jpg";
-const ars = "/interventiiRapide/ars.jpg";
-const before1 = "/interventiiRapide/before1.jpg";
-const before2 = "/interventiiRapide/before2.jpg";
-const circuitPrizaAscuns = "/interventiiRapide/circuitPrizaAscuns.jpg";
-const defecteSapa = "/interventiiRapide/defecteSapa.jpg";
-const priza = "/interventiiRapide/priza.jpg";
-const aparatMasura = "/lucrariComplexe/aparatMasura.jpg";
-const tablou4 = "/lucrariComplexe/tablou4.jpg";
-const tablou7 = "/lucrariComplexe/tablou7.jpg";
-const traseuCopex1 = "/lucrariComplexe/traseuCopex1.jpg";
-const traseuPerete = "/lucrariComplexe/traseuPerete.jpg";
+const defecteInSapa = "/home/interventiiRapide/defecteInSapa.jpg";
+const disjunctorGeneral = "/home/interventiiRapide/disjunctorGeneral.jpg";
+const InterventiePanou = "/home/interventiiRapide/InterventiePanou.jpg";
+const prizaCarbonizata = "/home/interventiiRapide/prizaCarbonizata.jpg";
+
+const aparatMasura = "home/lucrariComplexe/aparatMasura.jpg";
+const tablou = "home/lucrariComplexe/tablou.jpg";
+const traseuSapa = "home/lucrariComplexe/traseuSapa.jpg";
+const inlocuireRRU = "home/lucrariComplexe/inlocuireRRU.jpeg";
 
 const imagesWithDescriptions = {
   emergencies: [
     {
-      src: before1,
-      desc: "Intervenție rapidă înainte de reparație - Avarie majoră la instalația electrică.",
+      src: defecteInSapa,
+      desc: "Defecte în șapă corectate.",
     },
-    {
-      src: before2,
-      desc: "Intervenție rapidă înainte de reparație - Defecțiune la cablaj.",
-    },
-    {
-      src: after1,
-      desc: "Intervenție rapidă după reparație - Sistem electric restaurat.",
-    },
-    {
-      src: after2,
-      desc: "Intervenție rapidă după reparație - Funcționalitate completă.",
-    },
-    { src: ars, desc: "Intervenție rapidă - Reparație după incendiu." },
-    {
-      src: circuitPrizaAscuns,
-      desc: "Intervenție rapidă - Circuit priză ascuns reparat.",
-    },
-    {
-      src: defecteSapa,
-      desc: "Intervenție rapidă - Defecte în șapă corectate.",
-    },
-    { src: priza, desc: "Intervenție rapidă - Priză reparată." },
+    { src: disjunctorGeneral, desc: "Declanșare disjunctor general depășire putere instalată." },
+    { src: InterventiePanou, desc: "Intervenție panou siguranță arsă." },
+    { src: prizaCarbonizata, desc: "Intervenție priză carbonizată." },
   ],
   complexWorks: [
     {
       src: aparatMasura,
-      desc: "Lucrări complexe - Utilizare aparat de măsură pentru verificări.",
+      desc: "Utilizare aparat de măsură pentru verificări.",
     },
-    { src: tablou4, desc: "Lucrări complexe - Tablou electric modernizat." },
     {
-      src: tablou7,
-      desc: "Lucrări complexe - Tablou electric complet echipat.",
+      src: tablou,
+      desc: "Tablou electric complet echipat.",
     },
-    { src: traseuCopex1, desc: "Lucrări complexe - Traseu copex instalat." },
-    { src: traseuPerete, desc: "Lucrări complexe - Traseu perete finalizat." },
+    { src: traseuSapa, desc: "Traseu copex instalat." },
+    { src: inlocuireRRU, desc: "Înlocuire RRU stație telefonie mobilă." },
   ],
 };
 
