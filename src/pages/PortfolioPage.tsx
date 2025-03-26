@@ -107,31 +107,120 @@ const portfolioData = {
     description: "Reparații rapide și sigure pentru situații de urgență",
     items: [
       {
-        id: "em-1",
-        title: "Remediere Scurtcircuit",
+        id: "urg-1",
+        title: "Inlocuire Priza Carbonizata",
         description:
-          "Intervenție de urgență pentru identificarea și remedierea unui scurtcircuit care a afectat tabloul electric principal.",
-        images: ["/tablouFire.jpg", "/tablou11.jpg", "/aparatMasura.jpg"],
-        client: "Complex rezidențial, Calea Aradului",
-        location: "Timișoara, Calea Aradului",
+          "Înlocuirea de urgență a unei prize carbonizate care a provocat un scurtcircuit într-un complex rezidențial.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-1/1.jpg",
+          "/portofoliu/interventiiRapide/urg-1/2.jpg",
+          "/portofoliu/interventiiRapide/urg-1/3.jpg",
+        ],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Aradului",
       },
       {
-        id: "em-2",
-        title: "Înlocuire Tablou Ars",
+        id: "urg-2",
+        title: "Interventie circuit cu probleme in sapa",
         description:
-          "Înlocuirea de urgență a unui tablou electric deteriorat în urma unui incendiu, restabilind alimentarea cu energie electrică.",
-        images: ["/tablouArs.jpg", "/tablouArs2.jpg", "/tablou6.jpg"],
-        client: "Pensiune turistică, Recaș",
-        location: "Recaș, Timiș",
+          "Identificarea și remedierea unui circuit electric defect care a provocat întreruperi frecvente în alimentarea cu energie electrică.",
+        images: ["/portofoliu/interventiiRapide/urg-2/1.jpg"],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Circumvalatiunii",
       },
       {
-        id: "em-3",
-        title: "Reparație Circuit Defect",
+        id: "urg-3",
+        title:
+          "Interventie declansare disjunctor general depasire putere instalata",
         description:
-          "Localizarea și repararea unui circuit defect care cauza întreruperi frecvente în alimentarea cu energie electrică.",
-        images: ["/cabluri4.jpg", "/cabluri.jpg", "/flex.jpg"],
-        client: "Restaurant în centrul orașului",
-        location: "Timișoara, Piața Victoriei",
+          "Localizarea și remedierea unei probleme de suprasarcină care declanșa disjunctorul general.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-3/1.jpg",
+          "/portofoliu/interventiiRapide/urg-3/2.jpg",
+        ],
+        client: "Complex rezidențial",
+        location: "Timișoara",
+      },
+      {
+        id: "urg-4",
+        title: "Interventie declansare RCCBO GENERAL",
+        description:
+          "Repararea unei defecțiuni care declanșa dispozitivul de protecție RCCBO.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-4/1.jpg",
+          "/portofoliu/interventiiRapide/urg-4/2.jpg",
+        ],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Mosnita Veche",
+      },
+      {
+        id: "urg-5",
+        title: "Interventie in regim de urgenta",
+        description:
+          "Repararea unor circuite electrice afectate de un scurtcircuit ",
+        images: [
+          "/portofoliu/interventiiRapide/urg-5/1.jpg",
+          "/portofoliu/interventiiRapide/urg-5/2.jpg",
+        ],
+        client: "Apartament 3 camere",
+        location: "Timișoara, Centrala",
+      },
+      {
+        id: "urg-6",
+        title: "Interventie la un panou electric vechi realizat neconform",
+        description:
+          "Remedierea unor defecte la un panou electric vechi, realizat neconform cu normele in vigoare",
+        images: [
+          "/portofoliu/interventiiRapide/urg-6/1.jpg",
+          "/portofoliu/interventiiRapide/urg-6/2.jpg",
+          "/portofoliu/interventiiRapide/urg-6/3.jpg",
+          "/portofoliu/interventiiRapide/urg-6/4.jpg",
+        ],
+        client: "Apartament ",
+        location: "Timișoara, Centrala",
+      },
+      {
+        id: "urg-7",
+        title: "Interventie inlocuire priza clasica",
+        description: "Inlocuire priza clasica cu priza in regim de urgenta",
+        images: [
+          "/portofoliu/interventiiRapide/urg-7/1.jpg",
+          "/portofoliu/interventiiRapide/urg-7/2.jpg",
+          "/portofoliu/interventiiRapide/urg-7/3.jpg",
+          "/portofoliu/interventiiRapide/urg-7/4.jpg",
+        ],
+        client: "Apartament",
+        location: "Timișoara, Zona Lipovei",
+      },
+      {
+        id: "urg-8",
+        title: "Interventie la un circuit de hota  strapuns",
+        description:
+          "Repararea unui circuit electric defect care alimenta o hota de bucatarie",
+        images: ["/portofoliu/interventiiRapide/urg-8/1.jpg"],
+        client: "Apartament",
+        location: "Timișoara, Zona Lipovei",
+      },
+      {
+        id: "urg-9",
+        title: "Indentificare incarcari pe faza-zona",
+        description:
+          "Identificarea si remedierea unor probleme de incarcare pe faza intr-un spatiu de productie",
+        images: ["/portofoliu/interventiiRapide/urg-9/1.jpg"],
+        client: "Brutarie",
+        location: "Timișoara, Zona Freidorf",
+      },
+      {
+        id: "urg-10",
+        title: "Refacere panou electric vechi",
+        description:
+          "Refacerea unui panou electric vechi, realizat neconform cu normele in vigoare",
+        images: [
+          "/portofoliu/interventiiRapide/urg-10/1.jpg",
+          "/portofoliu/interventiiRapide/urg-10/2.jpg",
+        ],
+        client: "Apartament",
+        location: "Timișoara, Zona Bucovinei",
       },
     ],
   },
@@ -142,7 +231,7 @@ const portfolioData = {
       "Implementare infrastructură și sisteme de telecomunicații performante",
     items: [
       {
-        id: "sp-1",
+        id: "tel-1",
         title: "Rețea Fibră Optică Clădire Birouri",
         description:
           "Instalarea unei rețele complete de fibră optică într-o clădire de birouri, incluzând cablare structurată, rack-uri și echipamente de distribuție.",
@@ -151,7 +240,7 @@ const portfolioData = {
         location: "Timișoara, City Business Centre",
       },
       {
-        id: "sp-2",
+        id: "tel-2",
         title: "Sistem Telecomunicații Industrial",
         description:
           "Implementarea unui sistem de telecomunicații pentru o fabrică, incluzând telefonie IP, rețea internă și conexiuni redundante.",
@@ -160,7 +249,7 @@ const portfolioData = {
         location: "Parcul Industrial Freidorf, Timișoara",
       },
       {
-        id: "sp-3",
+        id: "tel-3",
         title: "Turnuri Telecomunicații Rurale",
         description:
           "Instalarea și configurarea echipamentelor pentru turnuri de telecomunicații în zone rurale, oferind acces la internet și semnal mobil.",
