@@ -108,7 +108,7 @@ const portfolioData = {
     items: [
       {
         id: "urg-1",
-        title: "Inlocuire Priza Carbonizata",
+        title: "Înlocuire Priză Carbonizată",
         description:
           "Înlocuirea de urgență a unei prize carbonizate care a provocat un scurtcircuit într-un complex rezidențial.",
         images: [
@@ -121,7 +121,7 @@ const portfolioData = {
       },
       {
         id: "urg-2",
-        title: "Interventie circuit cu probleme in sapa",
+        title: "Intervenție circuit cu probleme în șapă",
         description:
           "Identificarea și remedierea unui circuit electric defect care a provocat întreruperi frecvente în alimentarea cu energie electrică.",
         images: ["/portofoliu/interventiiRapide/urg-2/1.jpg"],
@@ -131,7 +131,7 @@ const portfolioData = {
       {
         id: "urg-3",
         title:
-          "Interventie declansare disjunctor general depasire putere instalata",
+          "Intervenție declanșare disjunctor general depășire putere instalată",
         description:
           "Localizarea și remedierea unei probleme de suprasarcină care declanșa disjunctorul general.",
         images: [
@@ -143,7 +143,7 @@ const portfolioData = {
       },
       {
         id: "urg-4",
-        title: "Interventie declansare RCCBO GENERAL",
+        title: "Intervenție declanșare RCCBO GENERAL",
         description:
           "Repararea unei defecțiuni care declanșa dispozitivul de protecție RCCBO.",
         images: [
@@ -155,7 +155,7 @@ const portfolioData = {
       },
       {
         id: "urg-5",
-        title: "Interventie in regim de urgenta",
+        title: "Intervenție în regim de urgență",
         description:
           "Repararea unor circuite electrice afectate de un scurtcircuit ",
         images: [
@@ -167,9 +167,9 @@ const portfolioData = {
       },
       {
         id: "urg-6",
-        title: "Interventie la un panou electric vechi realizat neconform",
+        title: "Intervenție la un panou electric vechi realizat neconform",
         description:
-          "Remedierea unor defecte la un panou electric vechi, realizat neconform cu normele in vigoare",
+          "Remedierea unor defecte la un panou electric vechi, realizat neconform cu normele în vigoare",
         images: [
           "/portofoliu/interventiiRapide/urg-6/1.jpg",
           "/portofoliu/interventiiRapide/urg-6/2.jpg",
@@ -181,8 +181,8 @@ const portfolioData = {
       },
       {
         id: "urg-7",
-        title: "Interventie inlocuire priza clasica",
-        description: "Inlocuire priza clasica cu priza in regim de urgenta",
+        title: "Intervenție înlocuire priză clasică",
+        description: "Înlocuire priză clasică cu priză în regim de urgență",
         images: [
           "/portofoliu/interventiiRapide/urg-7/1.jpg",
           "/portofoliu/interventiiRapide/urg-7/2.jpg",
@@ -194,27 +194,27 @@ const portfolioData = {
       },
       {
         id: "urg-8",
-        title: "Interventie la un circuit de hota  strapuns",
+        title: "Intervenție la un circuit de hotă străpuns",
         description:
-          "Repararea unui circuit electric defect care alimenta o hota de bucatarie",
+          "Repararea unui circuit electric defect care alimenta o hotă de bucătărie",
         images: ["/portofoliu/interventiiRapide/urg-8/1.jpg"],
         client: "Apartament",
         location: "Timișoara, Zona Lipovei",
       },
       {
         id: "urg-9",
-        title: "Indentificare incarcari pe faza-zona",
+        title: "Identificare încărcări pe fază-zonă",
         description:
-          "Identificarea si remedierea unor probleme de incarcare pe faza intr-un spatiu de productie",
+          "Identificarea și remedierea unor probleme de încărcare pe fază într-un spațiu de producție",
         images: ["/portofoliu/interventiiRapide/urg-9/1.jpg"],
-        client: "Brutarie",
+        client: "Brutărie",
         location: "Timișoara, Zona Freidorf",
       },
       {
         id: "urg-10",
         title: "Refacere panou electric vechi",
         description:
-          "Refacerea unui panou electric vechi, realizat neconform cu normele in vigoare",
+          "Refacerea unui panou electric vechi, realizat neconform cu normele în vigoare",
         images: [
           "/portofoliu/interventiiRapide/urg-10/1.jpg",
           "/portofoliu/interventiiRapide/urg-10/2.jpg",
@@ -225,7 +225,7 @@ const portfolioData = {
     ],
   },
   specialProjects: {
-    title: "Proiecte in Telecomunicații",
+    title: "Proiecte în Telecomunicații",
     icon: <CellTower />,
     description:
       "Implementare infrastructură și sisteme de telecomunicații performante",
