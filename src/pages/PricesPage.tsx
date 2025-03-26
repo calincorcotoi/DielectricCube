@@ -24,7 +24,6 @@ import {
   ConstructionOutlined,
   CableOutlined,
   PowerOutlined,
-  HandymanOutlined,
   WhatsApp,
   Call,
 } from "@mui/icons-material";
