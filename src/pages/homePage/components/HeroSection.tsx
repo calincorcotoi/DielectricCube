@@ -115,17 +115,26 @@ const HeroSection = () => {
                     justifyContent: "center",
                     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
                     border: `8px solid ${theme.palette.colors.dielectricRed}`,
+                    transition: "transform 3.5s ease-in-out, box-shadow 3.5s ease-in-out",
+                    "&:hover": {
+                      boxShadow: "0 15px 35px rgba(0, 0, 0, 0.3)",
+                      "& .logo-img": {
+                        transform: "rotate(-360deg) scale(1.2)",
+                      },
+                    },
+                    cursor: "pointer",
                   }}
                 >
                   <Box
                     component="img"
                     src={dielectricLogo}
                     alt="Dielectric Cube"
+                    className="logo-img"
                     sx={{
                       width: "70%",
                       maxHeight: "70%",
                       objectFit: "contain",
-                      ml: 3,
+                      transition: "transform 1.5s ease-in-out",
                     }}
                   />
                 </Box>

@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({
             component="img"
             src={dielectricLogoText}
             alt="Dielectric Cube"
-            sx={isMobile ? { height: 27, maxWidth: "70%" } : { height: 27 }}
+            sx={isMobile ? { height: 16, maxWidth: "70%" } : { height: 27 }}
           />
         </Box>
         {isMobile ? (
