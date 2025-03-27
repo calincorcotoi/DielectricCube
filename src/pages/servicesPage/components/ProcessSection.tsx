@@ -9,7 +9,8 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-const tablou4 = "/lucrariComplexe/tablou4.jpg";
+const tablou4 = "/servicii/panou.jpg";
+
 const ProcessSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

@@ -1080,8 +1080,9 @@ const PortfolioPage = () => {
                         }`}
                         sx={{
                           width: "100%",
-                          height: isMobile ? "250px" : "550px",
-                          objectFit: "cover",
+                          height: isMobile ? "350px" : "650px",
+                          objectFit: "contain",
+                          bgcolor: "rgba(0,0,0,0.03)",
                         }}
                       />
 
