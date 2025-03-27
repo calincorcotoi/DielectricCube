@@ -39,8 +39,8 @@ const portfolioData = {
     items: [
       {
         id: "rez-1",
-        title: "Instalare corpuri de iluminat - Casa Moșnița Nouă",
-        description: "Montaj corpuri de iluminat pentru o casă din Moșnița Nouă.",
+        title: "Instalare corpuri de iluminat casa Mosnita Noua",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-1/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-1/2.jpg",
@@ -53,36 +53,35 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-1/9.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-1/10.jpg",
         ],
-        client: "Proprietar privat",
-        location: "Moșnița Nouă",
+        client: "",
+        location: "",
       },
       {
         id: "rez-2",
-        title: "Panou electric - Separare coloane casa Izvin",
-        description:
-          "Instalare panou electric pentru separarea coloanelor electrice.",
+        title: "Panou electric separare coloane casa - IZVIN",
+        description: "",
         images: ["/portofoliu/instalatiiRezidentiale/rez-2/1.jpg"],
-        client: "Proprietar privat",
-        location: "Izvin",
+        client: "",
+        location: "",
       },
       {
         id: "rez-3",
-        title: "Împământare artificială și panou electric - Remetea Mare",
-        description:
-          "Realizare împământare artificială și refacere panou electric pentru o casă.",
+        title:
+          "Realizare impamantare artificiala + refacere panou electric casa Remetea Mare",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-3/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-3/2.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-3/3.jpg",
         ],
-        client: "Proprietar privat",
-        location: "Remetea Mare",
+        client: "",
+        location: "",
       },
       {
         id: "rez-4",
-        title: "Iluminat parcare bloc locuințe",
-        description:
-          "Realizare împământare artificială și iluminat pentru parcarea unui bloc de locuințe.",
+        title:
+          "Realizare impamantare artificiala+iluminat parcare bloc locuinte",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-4/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-4/2.jpg",
@@ -92,26 +91,26 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-4/6.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-4/7.jpg",
         ],
-        client: "Asociație de proprietari",
-        location: "Timișoara",
+        client: "",
+        location: "",
       },
       {
         id: "rez-5",
-        title: "Inlocuire panou electric apartament - Circumvalațiunii",
-        description:
-          "Înlocuire panou electric și adăugare circuite noi pentru un apartament cu 3 camere.",
+        title:
+          "Realizare inlocuire apartament cu 3 camere panou electric si adaugare circuite noi Circumvalatiunii",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-5/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-5/2.jpg",
         ],
-        client: "Proprietar apartament",
-        location: "Timișoara, Circumvalațiunii",
+        client: "",
+        location: "",
       },
       {
         id: "rez-6",
-        title: "Instalație electrică apartament 2 camere - Structură cărămidă",
-        description:
-          "Realizare instalație electrică completă pentru un apartament cu 2 camere.",
+        title:
+          "Realizare instalatie electrica apartament 2 camere structura caramida",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-6/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-6/2.jpg",
@@ -125,14 +124,13 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-6/10.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-6/11.jpg",
         ],
-        client: "Proprietar apartament",
-        location: "Timișoara",
+        client: "",
+        location: "",
       },
       {
         id: "rez-7",
-        title: "Instalație electrică birou - Ferendia, Timiș",
-        description:
-          "Realizare instalație electrică completă pentru un birou situat în Ferendia.",
+        title: "Realizare instalatie electrica birou- Ferendia jud Timis",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-7/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-7/2.jpg",
@@ -143,14 +141,13 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-7/7.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-7/8.jpg",
         ],
-        client: "Proprietar birou",
-        location: "Ferendia, Timiș",
+        client: "",
+        location: "",
       },
       {
         id: "rez-8",
-        title: "Instalație electrică casă - Dr. Tr. Severin",
-        description:
-          "Realizare instalație electrică completă pentru o casă din Dr. Tr. Severin.",
+        title: "Realizare instalatie electrica casa Dr.Tr.Severin",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-8/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-8/2.jpg",
@@ -161,14 +158,13 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-8/7.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-8/8.jpg",
         ],
-        client: "Proprietar privat",
-        location: "Dr. Tr. Severin",
+        client: "",
+        location: "",
       },
       {
         id: "rez-9",
-        title: "Instalație electrică casă - Giarmata Vii",
-        description:
-          "Realizare instalație electrică completă pentru o casă din Giarmata Vii.",
+        title: "Realizare instalatie electrica casa Giarmata Vii",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-9/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-9/2.jpg",
@@ -183,14 +179,13 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-9/11.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-9/12.jpg",
         ],
-        client: "Proprietar privat",
-        location: "Giarmata Vii",
+        client: "",
+        location: "",
       },
       {
         id: "rez-10",
-        title: "Instalație electrică casă nouă - Dumbrăvița",
-        description:
-          "Realizare instalație electrică completă pentru o casă nouă din Dumbrăvița.",
+        title: "Realizare instalatie electrica casa noua DUMBRAVITA",
+        description: "",
         images: [
           "/portofoliu/instalatiiRezidentiale/rez-10/1.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-10/2.jpg",
@@ -212,8 +207,180 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-10/18.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-10/19.jpg",
         ],
-        client: "Proprietar privat",
-        location: "Dumbrăvița",
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-11",
+        title: "Realizare instalatie electrica casa Remetea Mare",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-11/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-11/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-11/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-11/4.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-12",
+        title:
+          "Realizare instalatie electrica pe tavan cu cablu  NYM-J apartament 3 camere - zona olimpia",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-12/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-12/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-12/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-12/4.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-13",
+        title:
+          "Realizare instalatie electrica si realizare panou electrci casa veche+realizare impamantare in adancime- sat Cralovat",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-13/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-13/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-13/3.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-14",
+        title:
+          "Realizare refacere panou electric apartament bloc caramida an 1910- Zona N,Titulescu",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-14/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-14/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-14/3.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-15",
+        title: "Realizare sistem paratraznet casa Giarmata Vii",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-15/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-15/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-15/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-15/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-15/5.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-16",
+        title:
+          "Realizare traseu jgheab metalic coloane alimentare apartamente bloc 110 Ap Dumbravita",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-16/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-16/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-16/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-16/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-16/5.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-17",
+        title:
+          "Refacere instalatie electrica apartament 3 camere structura beton zona DACIA",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-17/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-17/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-17/3.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-18",
+        title:
+          "Refacere instalatie electrica garsoniera Zona Nicolae Titulescu",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-18/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/8.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/9.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/10.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/11.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/12.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/13.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/14.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/15.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/16.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/17.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-18/18.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-19",
+        title:
+          "Refacere panou electric neconform apartament 2 camere -Zona Dambovita",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-19/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-19/2.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-20",
+        title:
+          "Refacere panou electric neconform apartament 2 camere -Zona Dambovita",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-20/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-20/2.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-21",
+        title: "Refacere panou electric vechi apartament",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-21/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-21/2.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "rez-22",
+        title:
+          "Verificare instalatie electrica si punere in functiune la finalizarea instalatiei electrice",
+        description: "",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-22/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-22/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-22/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-22/4.jpg",
+        ],
+        client: "",
+        location: "",
       },
     ],
   },
@@ -225,17 +392,259 @@ const portfolioData = {
     items: [
       {
         id: "com-1",
-        title: "Circuite electrice pe structură de lemn - Spațiu comercial",
-        description:
-          "Realizare circuite electrice pentru un spațiu comercial cu structură de lemn.",
+        title:
+          "Realizare circuite electrice pe structura de lemn spatiu comercial",
+        description: "",
         images: [
           "/portofoliu/InterventiiComerciale/com-1/1.jpg",
           "/portofoliu/InterventiiComerciale/com-1/2.jpg",
           "/portofoliu/InterventiiComerciale/com-1/3.jpg",
           "/portofoliu/InterventiiComerciale/com-1/4.jpg",
         ],
-        client: "Proprietar spațiu comercial",
+        client: "",
+        location: "",
+      },
+      {
+        id: "com-2",
+        title: "Realizare instalatie electrica hala industriala",
+        description: "",
+        images: [
+          "/portofoliu/InterventiiComerciale/com-2/1.jpg",
+          "/portofoliu/InterventiiComerciale/com-2/2.jpg",
+          "/portofoliu/InterventiiComerciale/com-2/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-2/4.jpg",
+          "/portofoliu/InterventiiComerciale/com-2/5.jpg",
+          "/portofoliu/InterventiiComerciale/com-2/6.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "com-3",
+        title:
+          "Realizare instalatie electrica si impamantare artificiala spatiu comercial",
+        description: "",
+        images: [
+          "/portofoliu/InterventiiComerciale/com-3/1.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/2.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/4.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/5.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/6.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/7.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/8.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/9.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/10.jpg",
+          "/portofoliu/InterventiiComerciale/com-3/11.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "com-4",
+        title: "Realizare panou electric spatiu Comercial Brutarie",
+        description: "",
+        images: ["/portofoliu/InterventiiComerciale/com-4/1.jpg"],
+        client: "",
+        location: "",
+      },
+      {
+        id: "com-5",
+        title:
+          "Realizare traseu jgheab metalic+circuite electrice alimentare utilaje+panou electric distributie Giarmata",
+        description: "",
+        images: [
+          "/portofoliu/InterventiiComerciale/com-5/1.jpg",
+          "/portofoliu/InterventiiComerciale/com-5/2.jpg",
+          "/portofoliu/InterventiiComerciale/com-5/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-5/4.jpg",
+          "/portofoliu/InterventiiComerciale/com-5/5.jpg",
+          "/portofoliu/InterventiiComerciale/com-5/6.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "com-6",
+        title: "Verificari anuale si emitere buletin masura statie PECO-A1",
+        description: "",
+        images: [
+          "/portofoliu/InterventiiComerciale/com-6/1.jpg",
+          "/portofoliu/InterventiiComerciale/com-6/2.jpg",
+          "/portofoliu/InterventiiComerciale/com-6/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-6/4.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+    ],
+  },
+  emergency: {
+    title: "Intervenții de Urgență",
+    icon: <FlashOn />,
+    description: "Reparații rapide și sigure pentru situații de urgență",
+    items: [
+      {
+        id: "urg-1",
+        title: "Înlocuire Priză Carbonizată",
+        description:
+          "Înlocuirea de urgență a unei prize carbonizate care a provocat un scurtcircuit într-un complex rezidențial.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-1/1.jpg",
+          "/portofoliu/interventiiRapide/urg-1/2.jpg",
+          "/portofoliu/interventiiRapide/urg-1/3.jpg",
+        ],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Aradului",
+      },
+      {
+        id: "urg-2",
+        title: "Intervenție circuit cu probleme în șapă",
+        description:
+          "Identificarea și remedierea unui circuit electric defect care a provocat întreruperi frecvente în alimentarea cu energie electrică.",
+        images: ["/portofoliu/interventiiRapide/urg-2/1.jpg"],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Circumvalatiunii",
+      },
+      {
+        id: "urg-3",
+        title:
+          "Intervenție declanșare disjunctor general depășire putere instalată",
+        description:
+          "Localizarea și remedierea unei probleme de suprasarcină care declanșa disjunctorul general.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-3/1.jpg",
+          "/portofoliu/interventiiRapide/urg-3/2.jpg",
+        ],
+        client: "Complex rezidențial",
         location: "Timișoara",
+      },
+      {
+        id: "urg-4",
+        title: "Intervenție declanșare RCCBO GENERAL",
+        description:
+          "Repararea unei defecțiuni care declanșa dispozitivul de protecție RCCBO.",
+        images: [
+          "/portofoliu/interventiiRapide/urg-4/1.jpg",
+          "/portofoliu/interventiiRapide/urg-4/2.jpg",
+        ],
+        client: "Complex rezidențial",
+        location: "Timișoara, Zona Mosnita Veche",
+      },
+      {
+        id: "urg-5",
+        title: "Intervenție în regim de urgență",
+        description:
+          "Repararea unor circuite electrice afectate de un scurtcircuit ",
+        images: [
+          "/portofoliu/interventiiRapide/urg-5/1.jpg",
+          "/portofoliu/interventiiRapide/urg-5/2.jpg",
+        ],
+        client: "Apartament 3 camere",
+        location: "Timișoara, Centrala",
+      },
+      {
+        id: "urg-6",
+        title: "Intervenție la un panou electric vechi realizat neconform",
+        description:
+          "Remedierea unor defecte la un panou electric vechi, realizat neconform cu normele în vigoare",
+        images: [
+          "/portofoliu/interventiiRapide/urg-6/1.jpg",
+          "/portofoliu/interventiiRapide/urg-6/2.jpg",
+          "/portofoliu/interventiiRapide/urg-6/3.jpg",
+          "/portofoliu/interventiiRapide/urg-6/4.jpg",
+        ],
+        client: "Apartament ",
+        location: "Timișoara, Centrala",
+      },
+      {
+        id: "urg-7",
+        title: "Intervenție înlocuire priză clasică",
+        description: "Înlocuire priză clasică cu priză în regim de urgență",
+        images: [
+          "/portofoliu/interventiiRapide/urg-7/1.jpg",
+          "/portofoliu/interventiiRapide/urg-7/2.jpg",
+          "/portofoliu/interventiiRapide/urg-7/3.jpg",
+          "/portofoliu/interventiiRapide/urg-7/4.jpg",
+        ],
+        client: "Apartament",
+        location: "Timișoara, Zona Lipovei",
+      },
+      {
+        id: "urg-8",
+        title: "Intervenție la un circuit de hotă străpuns",
+        description:
+          "Repararea unui circuit electric defect care alimenta o hotă de bucătărie",
+        images: ["/portofoliu/interventiiRapide/urg-8/1.jpg"],
+        client: "Apartament",
+        location: "Timișoara, Zona Lipovei",
+      },
+      {
+        id: "urg-9",
+        title: "Identificare încărcări pe fază-zonă",
+        description:
+          "Identificarea și remedierea unor probleme de încărcare pe fază într-un spațiu de producție",
+        images: ["/portofoliu/interventiiRapide/urg-9/1.jpg"],
+        client: "Brutărie",
+        location: "Timișoara, Zona Freidorf",
+      },
+      {
+        id: "urg-10",
+        title: "Refacere panou electric vechi",
+        description:
+          "Refacerea unui panou electric vechi, realizat neconform cu normele în vigoare",
+        images: [
+          "/portofoliu/interventiiRapide/urg-10/1.jpg",
+          "/portofoliu/interventiiRapide/urg-10/2.jpg",
+        ],
+        client: "Apartament",
+        location: "Timișoara, Zona Bucovinei",
+      },
+    ],
+  },
+  telecomProjects: {
+    title: "Proiecte în Telecomunicații",
+    icon: <CellTower />,
+    description:
+      "Implementare infrastructură și sisteme de telecomunicații performante",
+    items: [
+      {
+        id: "tel-1",
+        title:
+          "Interventie inlocuire RRU Statie telefonie Mobila -Iarna Semenic",
+        description: "",
+        images: [
+          "/portofoliu/interventiiTelecomunicatii/tel-1/1.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-1/2.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-1/3.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-1/4.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "tel-2",
+        title: "Interventie refacere circuit fibra optica Semenic",
+        description: "",
+        images: [
+          "/portofoliu/interventiiTelecomunicatii/tel-2/1.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-2/2.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-2/3.jpg",
+        ],
+        client: "",
+        location: "",
+      },
+      {
+        id: "tel-3",
+        title: "Realizare retea structurata birouri",
+        description: "",
+        images: [
+          "/portofoliu/interventiiTelecomunicatii/tel-3/1.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-3/2.jpg",
+          "/portofoliu/interventiiTelecomunicatii/tel-3/3.jpg",
+        ],
+        client: "",
+        location: "",
       },
     ],
   },
