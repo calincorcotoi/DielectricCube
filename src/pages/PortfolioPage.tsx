@@ -330,11 +330,6 @@ const portfolioData = {
           "/portofoliu/instalatiiRezidentiale/rez-18/11.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-18/12.jpg",
           "/portofoliu/instalatiiRezidentiale/rez-18/13.jpg",
-          "/portofoliu/instalatiiRezidentiale/rez-18/14.jpg",
-          "/portofoliu/instalatiiRezidentiale/rez-18/15.jpg",
-          "/portofoliu/instalatiiRezidentiale/rez-18/16.jpg",
-          "/portofoliu/instalatiiRezidentiale/rez-18/17.jpg",
-          "/portofoliu/instalatiiRezidentiale/rez-18/18.jpg",
         ],
         client: "Rezidențial garsonieră",
         location: "Zona Nicolae Titulescu",
@@ -930,10 +925,6 @@ const PortfolioPage = () => {
                       display: "flex",
                       flexDirection: "column",
                       transition: "all 0.3s",
-                      "&:hover": {
-                        transform: "translateY(-5px)",
-                        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                      },
                       border: `1px solid ${
                         index % 2 === 0
                           ? theme.palette.colors.darkBlue
@@ -951,9 +942,6 @@ const PortfolioPage = () => {
                       sx={{
                         objectFit: "cover",
                         transition: "transform 0.5s",
-                        "&:hover": {
-                          transform: "scale(1.05)",
-                        },
                       }}
                     />
                     <CardContent sx={{ flexGrow: 1, p: 2 }}>
@@ -1044,13 +1032,13 @@ const PortfolioPage = () => {
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   width: isMobile ? "95%" : "80%",
-                  maxWidth: "900px",
-                  maxHeight: "90vh",
+                  maxWidth: isMobile ? "900px" : "1300px",
+                  maxHeight: "100vh",
+
                   bgcolor: "background.paper",
                   borderRadius: 2,
                   boxShadow: 24,
                   overflow: "auto",
-                  p: 0,
                 }}
               >
                 {selectedItem && (
@@ -1092,7 +1080,7 @@ const PortfolioPage = () => {
                         }`}
                         sx={{
                           width: "100%",
-                          height: isMobile ? "250px" : "400px",
+                          height: isMobile ? "250px" : "550px",
                           objectFit: "cover",
                         }}
                       />
