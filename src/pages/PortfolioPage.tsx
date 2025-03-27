@@ -38,31 +38,182 @@ const portfolioData = {
       "Lucrări complete de instalații electrice pentru locuințe și apartamente",
     items: [
       {
-        id: "res-1",
-        title: "Tablou Electric Apartament Modern",
-        description:
-          "Instalarea unui tablou electric modern, prevăzut cu siguranțe automate și protecție diferențială, într-un apartament din Timișoara.",
-        images: ["/tablou1.jpg", "/tablou2.jpg", "/tablou3.jpg"],
-        client: "Proprietar apartament 3 camere, Timișoara",
-        location: "Timișoara, Cartier Circumvalațiunii",
+        id: "rez-1",
+        title: "Instalare corpuri de iluminat - Casa Moșnița Nouă",
+        description: "Montaj corpuri de iluminat pentru o casă din Moșnița Nouă.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-1/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/8.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/9.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-1/10.jpg",
+        ],
+        client: "Proprietar privat",
+        location: "Moșnița Nouă",
       },
       {
-        id: "res-2",
-        title: "Renovare Completă Instalație Electrică",
+        id: "rez-2",
+        title: "Panou electric - Separare coloane casa Izvin",
         description:
-          "Renovare completă a instalației electrice într-o casă veche, incluzând înlocuirea circuitelor, prizelor și întrerupătoarelor conform normelor actuale.",
-        images: ["/priza.jpg", "/intrerupator.jpg", "/cabluri.jpg"],
-        client: "Proprietar casă unifamilială, Dumbrăvița",
-        location: "Dumbrăvița, Timiș",
+          "Instalare panou electric pentru separarea coloanelor electrice.",
+        images: ["/portofoliu/instalatiiRezidentiale/rez-2/1.jpg"],
+        client: "Proprietar privat",
+        location: "Izvin",
       },
       {
-        id: "res-3",
-        title: "Remediere Defecte Instalație",
+        id: "rez-3",
+        title: "Împământare artificială și panou electric - Remetea Mare",
         description:
-          "Identificarea și remedierea defectelor într-o instalație electrică cu probleme, incluzând înlocuirea componentelor deteriorate.",
-        images: ["/tablouArs.jpg", "/tablouArs2.jpg", "/tablou6.jpg"],
-        client: "Proprietar apartament 2 camere, Timișoara",
-        location: "Timișoara, Cartier Fabric",
+          "Realizare împământare artificială și refacere panou electric pentru o casă.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-3/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-3/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-3/3.jpg",
+        ],
+        client: "Proprietar privat",
+        location: "Remetea Mare",
+      },
+      {
+        id: "rez-4",
+        title: "Iluminat parcare bloc locuințe",
+        description:
+          "Realizare împământare artificială și iluminat pentru parcarea unui bloc de locuințe.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-4/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-4/7.jpg",
+        ],
+        client: "Asociație de proprietari",
+        location: "Timișoara",
+      },
+      {
+        id: "rez-5",
+        title: "Inlocuire panou electric apartament - Circumvalațiunii",
+        description:
+          "Înlocuire panou electric și adăugare circuite noi pentru un apartament cu 3 camere.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-5/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-5/2.jpg",
+        ],
+        client: "Proprietar apartament",
+        location: "Timișoara, Circumvalațiunii",
+      },
+      {
+        id: "rez-6",
+        title: "Instalație electrică apartament 2 camere - Structură cărămidă",
+        description:
+          "Realizare instalație electrică completă pentru un apartament cu 2 camere.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-6/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/8.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/9.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/10.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-6/11.jpg",
+        ],
+        client: "Proprietar apartament",
+        location: "Timișoara",
+      },
+      {
+        id: "rez-7",
+        title: "Instalație electrică birou - Ferendia, Timiș",
+        description:
+          "Realizare instalație electrică completă pentru un birou situat în Ferendia.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-7/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-7/8.jpg",
+        ],
+        client: "Proprietar birou",
+        location: "Ferendia, Timiș",
+      },
+      {
+        id: "rez-8",
+        title: "Instalație electrică casă - Dr. Tr. Severin",
+        description:
+          "Realizare instalație electrică completă pentru o casă din Dr. Tr. Severin.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-8/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-8/8.jpg",
+        ],
+        client: "Proprietar privat",
+        location: "Dr. Tr. Severin",
+      },
+      {
+        id: "rez-9",
+        title: "Instalație electrică casă - Giarmata Vii",
+        description:
+          "Realizare instalație electrică completă pentru o casă din Giarmata Vii.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-9/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/8.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/9.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/10.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/11.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-9/12.jpg",
+        ],
+        client: "Proprietar privat",
+        location: "Giarmata Vii",
+      },
+      {
+        id: "rez-10",
+        title: "Instalație electrică casă nouă - Dumbrăvița",
+        description:
+          "Realizare instalație electrică completă pentru o casă nouă din Dumbrăvița.",
+        images: [
+          "/portofoliu/instalatiiRezidentiale/rez-10/1.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/2.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/3.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/4.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/5.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/6.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/7.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/8.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/9.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/10.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/11.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/12.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/13.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/14.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/15.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/16.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/17.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/18.jpg",
+          "/portofoliu/instalatiiRezidentiale/rez-10/19.jpg",
+        ],
+        client: "Proprietar privat",
+        location: "Dumbrăvița",
       },
     ],
   },
@@ -74,188 +225,17 @@ const portfolioData = {
     items: [
       {
         id: "com-1",
-        title: "Tablou Electric Industrial",
+        title: "Circuite electrice pe structură de lemn - Spațiu comercial",
         description:
-          "Proiectarea și instalarea unui tablou electric de mare capacitate pentru un spațiu comercial cu cerințe speciale de alimentare.",
-        images: ["/tablou4.jpg", "/tablou5.jpg", "/tablou10.jpg"],
-        client: "Magazin retail, Centrul Comercial Iulius Mall",
-        location: "Timișoara, Iulius Mall",
-      },
-      {
-        id: "com-2",
-        title: "Instalație Electrică Birou Open Space",
-        description:
-          "Instalarea rețelei electrice complete, inclusiv prize dedicate pentru stații de lucru și iluminat optimizat pentru un spațiu de birouri.",
-        images: ["/cabluri2.jpg", "/cabluri3.jpg", "/tablou7.jpg"],
-        client: "Companie IT, Clădire de birouri Openville",
-        location: "Timișoara, Openville",
-      },
-      {
-        id: "com-3",
-        title: "Instalație Hală Industrială",
-        description:
-          "Proiectarea și implementarea instalației electrice pentru o hală industrială, inclusiv alimentarea utilajelor și sistemul de iluminat industrial.",
-        images: ["/hala.jpg", "/tablou8.jpg", "/tablou9.jpg"],
-        client: "Fabrică producție componente auto",
-        location: "Parcul Industrial Freidorf, Timișoara",
-      },
-    ],
-  },
-  emergency: {
-    title: "Intervenții de Urgență",
-    icon: <FlashOn />,
-    description: "Reparații rapide și sigure pentru situații de urgență",
-    items: [
-      {
-        id: "urg-1",
-        title: "Înlocuire Priză Carbonizată",
-        description:
-          "Înlocuirea de urgență a unei prize carbonizate care a provocat un scurtcircuit într-un complex rezidențial.",
+          "Realizare circuite electrice pentru un spațiu comercial cu structură de lemn.",
         images: [
-          "/portofoliu/interventiiRapide/urg-1/1.jpg",
-          "/portofoliu/interventiiRapide/urg-1/2.jpg",
-          "/portofoliu/interventiiRapide/urg-1/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-1/1.jpg",
+          "/portofoliu/InterventiiComerciale/com-1/2.jpg",
+          "/portofoliu/InterventiiComerciale/com-1/3.jpg",
+          "/portofoliu/InterventiiComerciale/com-1/4.jpg",
         ],
-        client: "Complex rezidențial",
-        location: "Timișoara, Zona Aradului",
-      },
-      {
-        id: "urg-2",
-        title: "Intervenție circuit cu probleme în șapă",
-        description:
-          "Identificarea și remedierea unui circuit electric defect care a provocat întreruperi frecvente în alimentarea cu energie electrică.",
-        images: ["/portofoliu/interventiiRapide/urg-2/1.jpg"],
-        client: "Complex rezidențial",
-        location: "Timișoara, Zona Circumvalatiunii",
-      },
-      {
-        id: "urg-3",
-        title:
-          "Intervenție declanșare disjunctor general depășire putere instalată",
-        description:
-          "Localizarea și remedierea unei probleme de suprasarcină care declanșa disjunctorul general.",
-        images: [
-          "/portofoliu/interventiiRapide/urg-3/1.jpg",
-          "/portofoliu/interventiiRapide/urg-3/2.jpg",
-        ],
-        client: "Complex rezidențial",
+        client: "Proprietar spațiu comercial",
         location: "Timișoara",
-      },
-      {
-        id: "urg-4",
-        title: "Intervenție declanșare RCCBO GENERAL",
-        description:
-          "Repararea unei defecțiuni care declanșa dispozitivul de protecție RCCBO.",
-        images: [
-          "/portofoliu/interventiiRapide/urg-4/1.jpg",
-          "/portofoliu/interventiiRapide/urg-4/2.jpg",
-        ],
-        client: "Complex rezidențial",
-        location: "Timișoara, Zona Mosnita Veche",
-      },
-      {
-        id: "urg-5",
-        title: "Intervenție în regim de urgență",
-        description:
-          "Repararea unor circuite electrice afectate de un scurtcircuit ",
-        images: [
-          "/portofoliu/interventiiRapide/urg-5/1.jpg",
-          "/portofoliu/interventiiRapide/urg-5/2.jpg",
-        ],
-        client: "Apartament 3 camere",
-        location: "Timișoara, Centrala",
-      },
-      {
-        id: "urg-6",
-        title: "Intervenție la un panou electric vechi realizat neconform",
-        description:
-          "Remedierea unor defecte la un panou electric vechi, realizat neconform cu normele în vigoare",
-        images: [
-          "/portofoliu/interventiiRapide/urg-6/1.jpg",
-          "/portofoliu/interventiiRapide/urg-6/2.jpg",
-          "/portofoliu/interventiiRapide/urg-6/3.jpg",
-          "/portofoliu/interventiiRapide/urg-6/4.jpg",
-        ],
-        client: "Apartament ",
-        location: "Timișoara, Centrala",
-      },
-      {
-        id: "urg-7",
-        title: "Intervenție înlocuire priză clasică",
-        description: "Înlocuire priză clasică cu priză în regim de urgență",
-        images: [
-          "/portofoliu/interventiiRapide/urg-7/1.jpg",
-          "/portofoliu/interventiiRapide/urg-7/2.jpg",
-          "/portofoliu/interventiiRapide/urg-7/3.jpg",
-          "/portofoliu/interventiiRapide/urg-7/4.jpg",
-        ],
-        client: "Apartament",
-        location: "Timișoara, Zona Lipovei",
-      },
-      {
-        id: "urg-8",
-        title: "Intervenție la un circuit de hotă străpuns",
-        description:
-          "Repararea unui circuit electric defect care alimenta o hotă de bucătărie",
-        images: ["/portofoliu/interventiiRapide/urg-8/1.jpg"],
-        client: "Apartament",
-        location: "Timișoara, Zona Lipovei",
-      },
-      {
-        id: "urg-9",
-        title: "Identificare încărcări pe fază-zonă",
-        description:
-          "Identificarea și remedierea unor probleme de încărcare pe fază într-un spațiu de producție",
-        images: ["/portofoliu/interventiiRapide/urg-9/1.jpg"],
-        client: "Brutărie",
-        location: "Timișoara, Zona Freidorf",
-      },
-      {
-        id: "urg-10",
-        title: "Refacere panou electric vechi",
-        description:
-          "Refacerea unui panou electric vechi, realizat neconform cu normele în vigoare",
-        images: [
-          "/portofoliu/interventiiRapide/urg-10/1.jpg",
-          "/portofoliu/interventiiRapide/urg-10/2.jpg",
-        ],
-        client: "Apartament",
-        location: "Timișoara, Zona Bucovinei",
-      },
-    ],
-  },
-  specialProjects: {
-    title: "Proiecte în Telecomunicații",
-    icon: <CellTower />,
-    description:
-      "Implementare infrastructură și sisteme de telecomunicații performante",
-    items: [
-      {
-        id: "tel-1",
-        title: "Rețea Fibră Optică Clădire Birouri",
-        description:
-          "Instalarea unei rețele complete de fibră optică într-o clădire de birouri, incluzând cablare structurată, rack-uri și echipamente de distribuție.",
-        images: ["/rackServer.jpg", "/fibraOptica.jpg", "/retea.jpg"],
-        client: "Centru de afaceri, City Business Centre",
-        location: "Timișoara, City Business Centre",
-      },
-      {
-        id: "tel-2",
-        title: "Sistem Telecomunicații Industrial",
-        description:
-          "Implementarea unui sistem de telecomunicații pentru o fabrică, incluzând telefonie IP, rețea internă și conexiuni redundante.",
-        images: ["/serverRoom.jpg", "/telefonieIP.jpg", "/retea2.jpg"],
-        client: "Fabrică producție electronică, Parcul Industrial",
-        location: "Parcul Industrial Freidorf, Timișoara",
-      },
-      {
-        id: "tel-3",
-        title: "Turnuri Telecomunicații Rurale",
-        description:
-          "Instalarea și configurarea echipamentelor pentru turnuri de telecomunicații în zone rurale, oferind acces la internet și semnal mobil.",
-        images: ["/turn.jpg", "/antene.jpg", "/cabinet.jpg"],
-        client: "Operator regional de telecomunicații",
-        location: "Diverse localități din județul Timiș",
       },
     ],
   },
@@ -266,7 +246,7 @@ const allPortfolioItems = [
   ...portfolioData.residential.items,
   ...portfolioData.commercial.items,
   ...portfolioData.emergency.items,
-  ...portfolioData.specialProjects.items,
+  ...portfolioData.telecomProjects.items,
 ];
 
 const PortfolioPage = () => {
@@ -455,7 +435,7 @@ const PortfolioPage = () => {
                 <Tab
                   icon={<CellTower />}
                   label="Telecom"
-                  value="specialProjects"
+                  value="telecomProjects"
                   iconPosition={isMobile ? "top" : "start"}
                   sx={{ fontSize: isSmall ? "0.6rem" : "0.9rem" }}
                 />
