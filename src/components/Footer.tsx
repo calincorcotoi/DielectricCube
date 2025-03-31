@@ -256,7 +256,7 @@ const Footer = () => {
                 gap: 1,
               }}
             >
-              <Typography variant="body2">Facut de Călin Corcoțoi</Typography>
+              <Typography variant="body2">Făcut de Călin Corcoțoi</Typography>
               <Link
                 href="https://www.linkedin.com/in/c%C4%83lin-corco%C8%9Boi-87145b162/"
                 target="_blank"
