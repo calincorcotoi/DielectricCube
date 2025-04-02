@@ -16,6 +16,7 @@ import {
   Container,
   Grid,
   useTheme,
+  CircularProgress,
 } from "@mui/material";
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +37,10 @@ const imagesWithDescriptions = {
       src: defecteInSapa,
       desc: "Defecte în șapă corectate.",
     },
-    { src: disjunctorGeneral, desc: "Declanșare disjunctor general depășire putere instalată." },
+    {
+      src: disjunctorGeneral,
+      desc: "Declanșare disjunctor general depășire putere instalată.",
+    },
     { src: InterventiePanou, desc: "Intervenție panou siguranță arsă." },
     { src: prizaCarbonizata, desc: "Intervenție priză carbonizată." },
   ],
@@ -70,8 +74,23 @@ const SlideShow: React.FC<SlideShowProps> = ({
   const [index, setIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState("left");
   const [isAnimating, setIsAnimating] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const currentImageLoaded = loadedImages[images[index].src] || false;
+
+  // Preload the current image
+  useEffect(() => {
+    // Check if image is already in browser cache
+    const img = new Image();
+    img.src = images[index].src;
+
+    // If image is already complete (cached or loaded)
+    if (img.complete) {
+      setLoadedImages((prev) => ({ ...prev, [images[index].src]: true }));
+    }
+  }, [index, images]);
 
   const handleNext = useCallback(() => {
     if (isAnimating) return;
@@ -93,12 +112,9 @@ const SlideShow: React.FC<SlideShowProps> = ({
     }, 300);
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [handleNext]);
+  const handleImageLoad = (src: string) => {
+    setLoadedImages((prev) => ({ ...prev, [src]: true }));
+  };
 
   return (
     <Card
@@ -147,8 +163,25 @@ const SlideShow: React.FC<SlideShowProps> = ({
               : "translateX(0)",
             opacity: isAnimating ? 0.6 : 1,
             transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
+          {!currentImageLoaded && (
+            <Box
+              sx={{
+                position: "absolute",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <CircularProgress sx={{ color: "white" }} />
+            </Box>
+          )}
           <CardMedia
             component="img"
             height="300"
@@ -157,7 +190,10 @@ const SlideShow: React.FC<SlideShowProps> = ({
             sx={{
               objectFit: "cover",
               borderRadius: 2,
+              visibility: currentImageLoaded ? "visible" : "hidden", // Hide until loaded
             }}
+            onLoad={() => handleImageLoad(images[index].src)}
+            onError={() => handleImageLoad(images[index].src)} // Also handle error case
           />
         </Box>
       </Box>

@@ -2,12 +2,14 @@ import {
   Box,
   Card,
   CardContent,
+  CircularProgress,
   Container,
   Grid,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { useState } from "react";
 
 const domasneanuIlie = "/despre/echipa/domasneanuIlie.jpg";
 const vargaZoltan = "/despre/echipa/vargaZoltan.jpg";
@@ -36,6 +38,15 @@ const teamMembers = [
 const TeamSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // Add state to track loaded images
+  const [imagesLoaded, setImagesLoaded] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+
+  // Handle image load event
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded((prev) => ({ ...prev, [index]: true }));
+  };
 
   return (
     <Box sx={{ pt: 6, pb: 3 }}>
@@ -116,10 +127,33 @@ const TeamSection = () => {
                         position: "relative",
                       }}
                     >
+                      {!imagesLoaded[index] && (
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: isMobile ? "300px" : "100%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            backgroundColor: "rgba(255, 255, 255, 0.7)",
+                            zIndex: 1,
+                          }}
+                        >
+                          <CircularProgress
+                            size={60}
+                            thickness={4}
+                            sx={{ color: theme.palette.colors.teal }}
+                          />
+                        </Box>
+                      )}
                       <Box
                         component="img"
                         src={member.image}
                         alt={member.name}
+                        onLoad={() => handleImageLoad(index)}
                         sx={{
                           width: "100%",
                           height: isMobile ? "300px" : "100%",

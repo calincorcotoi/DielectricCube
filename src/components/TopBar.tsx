@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({
             component="img"
             src={dielectricLogo}
             alt="Dielectric Cube"
-            sx={isMobile ? { height: 50,p:0.6,pr:2 } : { height: 60, p: 1 }}
+            sx={isMobile ? { height: 50, p: 0.6, pr: 2 } : { height: 60, p: 1 }}
           />
           <Box
             component="img"

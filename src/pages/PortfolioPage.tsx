@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -16,6 +16,7 @@ import {
   useMediaQuery,
   IconButton,
   Divider,
+  CircularProgress,
 } from "@mui/material";
 import {
   Close,
@@ -681,6 +682,17 @@ const PortfolioPage = () => {
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Add states for tracking image loading
+  const [thumbnailsLoaded, setThumbnailsLoaded] = useState<
+    Record<string, boolean>
+  >({});
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
+
+  // Reset modal image loaded state when changing images
+  useEffect(() => {
+    setModalImageLoaded(false);
+  }, [currentImageIndex, selectedItem]);
+
   // Handle category change
   const handleCategoryChange = (
     _event: React.SyntheticEvent,
@@ -728,6 +740,19 @@ const PortfolioPage = () => {
     return (
       portfolioData[activeCategory as keyof typeof portfolioData]?.items || []
     );
+  };
+
+  // Handle thumbnail image load
+  const handleThumbnailLoad = (itemId: string) => {
+    setThumbnailsLoaded((prev) => ({
+      ...prev,
+      [itemId]: true,
+    }));
+  };
+
+  // Handle modal image load
+  const handleModalImageLoad = () => {
+    setModalImageLoaded(true);
   };
 
   return (
@@ -933,17 +958,42 @@ const PortfolioPage = () => {
                       overflow: "hidden",
                     }}
                   >
-                    {/* Thumbnail Image */}
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={item.images[0]}
-                      alt={item.title}
-                      sx={{
-                        objectFit: "cover",
-                        transition: "transform 0.5s",
-                      }}
-                    />
+                    {/* Thumbnail Image with Loading Indicator */}
+                    <Box sx={{ position: "relative", height: 200 }}>
+                      {!thumbnailsLoaded[item.id] && (
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            bgcolor: "rgba(0,0,0,0.03)",
+                          }}
+                        >
+                          <CircularProgress
+                            size={40}
+                            sx={{ color: theme.palette.colors.darkBlue }}
+                          />
+                        </Box>
+                      )}
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={item.images[0]}
+                        alt={item.title}
+                        sx={{
+                          objectFit: "cover",
+                          transition: "transform 0.5s",
+                          display: thumbnailsLoaded[item.id] ? "block" : "none",
+                        }}
+                        onLoad={() => handleThumbnailLoad(item.id)}
+                      />
+                    </Box>
+
                     <CardContent sx={{ flexGrow: 1, p: 2 }}>
                       <Typography
                         variant="h6"
@@ -1070,8 +1120,33 @@ const PortfolioPage = () => {
                       </IconButton>
                     </Box>
 
-                    {/* Image Gallery */}
-                    <Box sx={{ position: "relative" }}>
+                    {/* Image Gallery with Loading Indicator */}
+                    <Box
+                      sx={{
+                        position: "relative",
+                        height: isMobile ? 350 : 650,
+                        bgcolor: "rgba(0,0,0,0.03)",
+                      }}
+                    >
+                      {!modalImageLoaded && (
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <CircularProgress
+                            size={60}
+                            sx={{ color: theme.palette.colors.darkBlue }}
+                          />
+                        </Box>
+                      )}
                       <Box
                         component="img"
                         src={selectedItem.images[currentImageIndex]}
@@ -1082,8 +1157,10 @@ const PortfolioPage = () => {
                           width: "100%",
                           height: isMobile ? "350px" : "650px",
                           objectFit: "contain",
-                          bgcolor: "rgba(0,0,0,0.03)",
+                          opacity: modalImageLoaded ? 1 : 0,
+                          transition: "opacity 0.3s",
                         }}
+                        onLoad={handleModalImageLoad}
                       />
 
                       {/* Image Navigation */}

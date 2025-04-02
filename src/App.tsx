@@ -1,9 +1,22 @@
-import { Box, ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import {
+  Box,
+  ThemeProvider,
+  createTheme,
+  CssBaseline,
+  CircularProgress,
+} from "@mui/material";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import { Provider, useSelector } from "react-redux";
+import store from "./app/GlobalContext";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+const dielectricLogo = "/logo/dielectric-logo.png";
+const dielectricLogoText = "/logo/dielectric-logo-text.png";
+const sampleImages = [dielectricLogo, dielectricLogoText];
 // Extend the Palette interface to include custom colors
 declare module "@mui/material/styles" {
   interface Palette {
@@ -139,24 +152,113 @@ const theme = createTheme({
   },
 });
 
-function App() {
+const LoadingStatus = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+      sx={{
+        background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
+      }}
+    >
+      <CircularProgress
+        size={120}
+        thickness={4}
+        sx={{
+          color: "white",
+        }}
+      />
+    </Box>
+  );
+};
+
+interface ImageLoaderProps {
+  images: string[];
+}
+
+const ImageLoader = ({ images }: ImageLoaderProps) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!images || images.length === 0) {
+      dispatch({ type: "SET_LOADED", payload: true });
+      return;
+    }
+
+    const preloadImage = (src: string) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    };
+
+    const loadImages = async () => {
+      try {
+        await Promise.all(
+          images.map((src) =>
+            preloadImage(src).then(() => {
+              // Could dispatch progress updates if needed
+            })
+          )
+        );
+
+        // All images loaded successfully
+        dispatch({ type: "SET_LOADED", payload: true });
+      } catch (error) {
+        console.error("Error loading images:", error);
+        // Even with errors, consider loading complete
+        dispatch({ type: "SET_LOADED", payload: true });
+      }
+    };
+
+    loadImages();
+  }, [images, dispatch]);
+
+  return null;
+};
+
+function AppContent() {
+  const isLoaded = useSelector((state: any) => state.isLoaded);
+  const loading = !isLoaded;
+  return (
+    <>
       <ScrollToTop />
       <Box display="flex" flexDirection="column" minHeight="100vh">
-        <TopBar />
-        <Box
-          flex="1"
-          style={{
-            background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
-          }}
-        >
-          <Outlet />
-        </Box>
-        <Footer />
+        {loading ? (
+          <LoadingStatus />
+        ) : (
+          <>
+            <TopBar />
+            <Box
+              flex="1"
+              style={{
+                background: `linear-gradient(180deg, ${theme.palette.colors.teal} 0%, ${theme.palette.colors.lightBlue} 100%)`,
+              }}
+            >
+              <Outlet />
+            </Box>
+            <Footer />
+          </>
+        )}
+        <ImageLoader images={sampleImages} />
       </Box>
-    </ThemeProvider>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <AppContent />
+      </ThemeProvider>
+    </Provider>
   );
 }
 

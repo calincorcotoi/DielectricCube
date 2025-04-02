@@ -1,7 +1,9 @@
+import { useState } from "react";
 import {
   Box,
   Card,
   CardContent,
+  CircularProgress,
   Container,
   Grid,
   Typography,
@@ -15,6 +17,11 @@ const flex = "/despre/flex.jpg";
 const CompanyStorySection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   return (
     <Box sx={{ pt: 6, pb: 3 }}>
@@ -73,20 +80,32 @@ const CompanyStorySection = () => {
 
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={flex}
-                  alt="Dielectric Cube"
-                  sx={{
-                    width: "100%",
-                    maxWidth: "400px",
-                    height: "auto",
-                    display: "block",
-                    mx: "auto",
-                    borderRadius: 2,
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
-                  }}
-                />
+                <Box sx={{ position: "relative", textAlign: "center" }}>
+                  {!imageLoaded && (
+                    <Box
+                      sx={{ display: "flex", justifyContent: "center", my: 10 }}
+                    >
+                      <CircularProgress
+                        sx={{ color: theme.palette.colors.darkBlue }}
+                      />
+                    </Box>
+                  )}
+                  <Box
+                    component="img"
+                    src={flex}
+                    alt="Dielectric Cube"
+                    onLoad={handleImageLoad}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "400px",
+                      height: "auto",
+                      display: imageLoaded ? "block" : "none",
+                      mx: "auto",
+                      borderRadius: 2,
+                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                    }}
+                  />
+                </Box>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Typography

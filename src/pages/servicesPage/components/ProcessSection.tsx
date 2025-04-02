@@ -8,12 +8,19 @@ import {
   Paper,
   useTheme,
   useMediaQuery,
+  CircularProgress,
 } from "@mui/material";
+import { useState } from "react";
 const tablou4 = "/servicii/panou.jpg";
 
 const ProcessSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   return (
     <Box sx={{ py: 3 }}>
@@ -72,17 +79,30 @@ const ProcessSection = () => {
 
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={tablou4}
-                  alt="Lucrări electrice profesionale"
-                  sx={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: 2,
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
-                  }}
-                />
+                <Box sx={{ position: "relative", textAlign: "center" }}>
+                  {!imageLoaded && (
+                    <Box
+                      sx={{ display: "flex", justifyContent: "center", my: 10 }}
+                    >
+                      <CircularProgress
+                        sx={{ color: theme.palette.colors.darkBlue }}
+                      />
+                    </Box>
+                  )}
+                  <Box
+                    component="img"
+                    src={tablou4}
+                    alt="Lucrări electrice profesionale"
+                    onLoad={handleImageLoad}
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                      display: imageLoaded ? "block" : "none",
+                      borderRadius: 2,
+                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                    }}
+                  />
+                </Box>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Box>
