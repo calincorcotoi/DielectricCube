@@ -379,7 +379,7 @@ const CarouselSection = () => {
                   },
                 }}
                 onClick={() => {
-                  navigate("/portofoliu");
+                  navigate("/portfolio");
                 }}
               >
                 Vezi toate lucrările

@@ -55,7 +55,7 @@ const CallToActionSection = () => {
               variant="outlined"
               size="large"
               onClick={() => {
-                navigate("/portofoliu");
+                navigate("/portfolio");
               }}
               startIcon={<ElectricalServices />}
               sx={{

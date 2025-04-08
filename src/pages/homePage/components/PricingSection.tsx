@@ -324,7 +324,7 @@ const PricingSection = () => {
                     },
                   }}
                   onClick={() => {
-                    navigate("/preturi");
+                    navigate("/prices");
                   }}
                 >
                   Prețuri

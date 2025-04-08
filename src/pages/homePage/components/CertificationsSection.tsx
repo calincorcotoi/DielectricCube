@@ -15,6 +15,7 @@ import {
   Button,
   Modal,
   useTheme,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import ButtonHoverEffect from "../../../components/ButtonHoverEffect";
@@ -26,16 +27,26 @@ const CertificationsSection = () => {
   // State for controlling modals
   const [openANRE, setOpenANRE] = useState(false);
   const [openIGPR, setOpenIGPR] = useState(false);
+  // State for images loaded
+  const [anreImageLoaded, setAnreImageLoaded] = useState(false);
+  const [igprImageLoaded, setIgprImageLoaded] = useState(false);
 
   // Modal handlers
-  const handleOpenANRE = () => setOpenANRE(true);
+  const handleOpenANRE = () => {
+    setOpenANRE(true);
+    setAnreImageLoaded(false);
+  };
   const handleCloseANRE = () => setOpenANRE(false);
-  const handleOpenIGPR = () => setOpenIGPR(true);
+  const handleOpenIGPR = () => {
+    setOpenIGPR(true);
+    setIgprImageLoaded(false);
+  };
   const handleCloseIGPR = () => setOpenIGPR(false);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
-  // Serviciile electricianului
+
   const services = [
     {
       title: "Instalații Electrice Rezidențiale",
@@ -185,7 +196,7 @@ const CertificationsSection = () => {
                       </Typography>
                       <Typography
                         variant="body2"
-                        onClick={() => navigate("/servicii")}
+                        onClick={() => navigate("/services")}
                         sx={{
                           mt: 2,
                           color: theme.palette.colors.darkBlue,
@@ -290,19 +301,25 @@ const CertificationsSection = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
+              alignItems: "center",
               mb: 2,
               borderRadius: 1,
               overflow: "hidden",
               boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              minHeight: "300px",
+              position: "relative",
             }}
           >
+            {!anreImageLoaded && <CircularProgress />}
             <img
               src={atestatAnre}
               alt="Autorizare ANRE"
+              onLoad={() => setAnreImageLoaded(true)}
               style={{
                 maxWidth: "100%",
                 maxHeight: "70vh",
                 objectFit: "contain",
+                display: anreImageLoaded ? "block" : "none",
               }}
             />
           </Box>
@@ -367,19 +384,25 @@ const CertificationsSection = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
+              alignItems: "center",
               mb: 2,
               borderRadius: 1,
               overflow: "hidden",
               boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              minHeight: "300px",
+              position: "relative",
             }}
           >
+            {!igprImageLoaded && <CircularProgress />}
             <img
               src={atestatIgpr}
               alt="Atestat IGPR"
+              onLoad={() => setIgprImageLoaded(true)}
               style={{
                 maxWidth: "100%",
                 maxHeight: "70vh",
                 objectFit: "contain",
+                display: igprImageLoaded ? "block" : "none",
               }}
             />
           </Box>

@@ -157,7 +157,7 @@ const Footer = () => {
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
                 onClick={() => {
-                  navigate("/despre");
+                  navigate("/about");
                 }}
               >
                 Despre noi
@@ -171,7 +171,7 @@ const Footer = () => {
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
                 onClick={() => {
-                  navigate("/servicii");
+                  navigate("/services");
                 }}
               >
                 Servicii
@@ -185,7 +185,7 @@ const Footer = () => {
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
                 onClick={() => {
-                  navigate("/preturi");
+                  navigate("/prices");
                 }}
               >
                 Prețuri
@@ -199,7 +199,7 @@ const Footer = () => {
                   "&:hover": { color: theme.palette.colors.cream },
                 }}
                 onClick={() => {
-                  navigate("/portofoliu");
+                  navigate("/portfolio");
                 }}
               >
                 Portofoliu

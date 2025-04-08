@@ -205,10 +205,10 @@ const TopBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navItems = [
-    { label: "Despre", path: "/despre" },
-    { label: "Servicii", path: "/servicii" },
-    { label: "Prețuri", path: "/preturi" },
-    { label: "Portofoliu", path: "/portofoliu" },
+    { label: "Despre", path: "/about" },
+    { label: "Servicii", path: "/services" },
+    { label: "Prețuri", path: "/prices" },
+    { label: "Portofoliu", path: "/portfolio" },
   ];
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
